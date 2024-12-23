@@ -1,0 +1,12 @@
+.add-offer-btn {
+    padding: 10px 20px;
+    background-color: black;
+    position: absolute;
+    top: 15%; 
+    right: 20%; 
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+  

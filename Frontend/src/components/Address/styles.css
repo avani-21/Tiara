@@ -1,0 +1,84 @@
+.addBtn {
+    color: white;
+    background-color: #0f3460;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .addBtn:hover {
+    background-color: #1a73e8;
+  }
+  
+  .content {
+    padding: 20px;
+    margin-left: 21%;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .info h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .info .location {
+    margin: 5px 0 0 0;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .address-details {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .address-details p {
+    margin: 5px 0;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: 322px;
+    margin-left: 508px;
+}
+  
+  
+  .btn {
+    color: white;
+    background-color: #0f3460;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color:#1f436f;
+    color: white;
+  }
+  

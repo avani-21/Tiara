@@ -1,0 +1,118 @@
+/* Align small images on the left side */
+.product-page .small-images-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap to reduce white space */
+  justify-content: flex-start;
+  margin-top: 0px; /* Removed margin-top for better alignment */
+}
+
+/* Style for small images */
+.product-page .small-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-page .small-image {
+  width: 120px; /* Reduced the width of small images */
+  height: 180px; /* Adjusted height to maintain aspect ratio */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-page .small-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* Main product image style */
+.product-page img {
+  width: 450px; /* Adjusted width */
+  height: 350px; /* Adjusted height */
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  margin-top: 20px; /* Reduced margin-top */
+  padding: 8px; /* Reduced padding */
+}
+
+.product-page img:hover {
+  transform: scale(1.2);
+  cursor: zoom-in;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .product-page .row {
+    gap: 20px; /* Reduced gap for smaller screens */
+  }
+
+  .product-page img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Adjust height proportionally */
+  }
+
+  .product-page .small-image {
+    width: 100px; /* Reduced width of small images on mobile */
+    height: 150px; /* Adjusted height */
+  }
+
+  .product-page .small-images-column {
+    gap: 5px; /* Reduced gap between small images on mobile */
+  }
+}
+
+/* Ratings section */
+.product-page .rate {
+  display: flex;
+  align-items: center;
+  margin: 15px 0; /* Reduced margin */
+  gap: 20px; /* Reduced gap */
+}
+
+.product-page .rate .stars i {
+  font-size: 14px; /* Increased star size */
+  color: #ffcd4e;
+  margin: 0 3px; /* Adjusted margin */
+}
+
+/* Product information section */
+.product-page .info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Reduced gap */
+}
+
+.product-page .info .price {
+  font-size: 22px; /* Reduced font size */
+  font-weight: 500;
+}
+
+.product-page p {
+  font-size: 14px;
+  margin: 10px 0; /* Reduced margin */
+}
+
+/* Quantity input */
+.product-page .qty-input {
+  width: 60px; /* Reduced width */
+  height: 25px; /* Increased height for better usability */
+  border: 1px solid #ccc; /* Lighter border color */
+  border-radius: 5px;
+  padding: 8px;
+  margin: 15px 0; /* Reduced margin */
+  color: black;
+  font-size: 14px; /* Adjusted font size */
+}
+
+/* Add to Cart button */
+.product-page button.add {
+  padding: 12px 18px; /* Adjusted padding */
+  background-color: #0f3460;
+  color: white;
+  font-size: 16px; /* Reduced font size */
+  border-radius: 7px;
+  cursor: pointer;
+}
+.product-page{
+  margin-left: 90px;
+}

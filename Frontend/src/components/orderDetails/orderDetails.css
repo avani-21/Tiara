@@ -1,0 +1,105 @@
+
+.order-addBtn {
+  color: white;
+  background-color: #0f3460;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 15px auto;
+  display: block;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.order-addBtn:hover {
+  background-color: #1a73e8;
+}
+
+
+.order-content {
+  margin-left: 340px;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+
+.order-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.order-info h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.order-info .order-number {
+  margin: 5px 0 0 0;
+  color: #555;
+  font-size: 14px;
+}
+.order-info .order-date {
+  margin: 5px 0 0 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.order-details {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.order-details p {
+  margin: 5px 0;
+}
+
+
+.order-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+}
+
+
+.order-btn {
+  color: white;
+  width: fit-content;
+  background-color: #0f3460;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.order-btn:hover {
+  background-color: #1f436f;
+  color: white;
+}
+.no-order {
+  margin-left: 278px;
+  padding: 50px;
+  border: 1px solid #ccc;
+  margin-top: 70px;
+  margin-bottom: 404px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 70%;
+}

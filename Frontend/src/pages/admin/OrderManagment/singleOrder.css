@@ -1,0 +1,61 @@
+/* Main container for single order page */
+.single-order-page {
+    display: flex;
+    margin-left: 300px; /* Adjusting the left margin to accommodate the 300px sidebar */
+    gap: 30px; /* Space between the two sections */
+    padding: 20px;
+  }
+  
+  /* Order summary section */
+  .order-summary {
+    flex: 1;
+    max-width: 45%; /* Limit the width of the order summary */
+  }
+  
+  .order-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-title {
+    font-weight: bold;
+  }
+  
+  .order-summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  /* Order information section */
+  .order-info {
+    flex: 1;
+    max-width: 45%;
+  }
+  
+  .order-status {
+    margin-bottom: 20px;
+  }
+  
+  .status-success {
+    font-weight: bold;
+    color: green;
+  }
+  
+  .order-address,
+  .order-payment {
+    margin-top: 20px;
+  }
+  
+  .order-address h6,
+  .order-payment h6 {
+    font-weight: bold;
+  }
+  
+  .order-payment p,
+  .order-address p {
+    margin: 5px 0;
+  }
+  

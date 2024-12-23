@@ -1,0 +1,146 @@
+
+*:before,
+*:after {
+margin:0;
+padding: 0%;
+box-sizing: border-box;
+}
+
+
+.table-container h2{
+margin-left:90px;
+}
+.sidebar {
+width: 200px;
+background-color: #111;
+color: white;
+padding: 20px;
+height: 100vh;
+position: fixed;
+}
+
+.sidebar h1 {
+color: #ffb74d;
+margin-bottom: 20px;
+}
+
+.sidebar a {
+display: block;
+color: white;
+margin: 10px 0;
+text-decoration: none;
+}
+
+.sidebar a:hover {
+color: #ffb74d;
+}
+
+.main-content {
+margin-left: 220px; 
+width: calc(100% - 240px);
+padding: 20px;
+}
+
+.category-table-container {
+margin-top:55px;
+margin-left: 300px;
+margin-bottom: 20px;
+width: 78%;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.table-header {
+display: flex;
+ justify-content: space-between;
+ width: 90%;
+align-items: center;
+margin-bottom: 15px;
+}
+
+.table-header input {
+width: 70%;
+padding: 10px;
+border-radius: 4px;
+border: 1px solid #ccc;
+margin-right: 10px;
+}
+
+.add-btn {
+padding: 10px 15px;
+background-color: #0db851;
+border: none;
+color: white;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.add-btn:hover {
+background-color: #098f3d;
+}
+.edit-button{
+padding: 10px 15px;
+background-color: #0f04aa;
+border: none;
+margin-left:10px;
+color: white;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.content-table {
+width: 100%;
+border-collapse: separate;
+border-spacing: 0 8px;
+} 
+
+.content-table th{
+padding-top: 18px;
+padding-bottom: 18px;
+text-align: center;
+
+
+}
+.content-table td {
+padding-right: 60px;
+padding-top: 18px;
+padding-bottom: 18px;
+text-align: center;
+align-items: center;
+}
+
+.content-table th {
+
+background-color: #333;
+color: white;
+border-bottom: none;
+align-items: center;
+text-align: center;
+}
+
+.content-table tbody tr {
+background-color: #ffffff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.content-table tbody tr:hover {
+background-color: #e0e0e0;
+}
+
+
+
+.content-table tbody tr td button {
+padding: 6px 12px;
+background-color: #dd5353;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.content-table tbody tr td button:hover {
+background-color: #f65151;
+}  

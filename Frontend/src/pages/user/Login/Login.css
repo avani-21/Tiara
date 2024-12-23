@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0; 
+  overflow: hidden; 
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+main {
+  margin-left:440px;
+  margin-top:50px;
+  margin-bottom:50px;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  place-items: center;
+  background: #f6f6f6;
+  width: 100%;
+  max-width: 700px;
+  max-height: 450px; /* Set max height */
+  height: auto;
+  border: 0.1px solid rgb(238, 212, 212);
+  border-radius: 20px;
+  overflow: hidden; /* Hide any overflow */
+}
+
+.left-side {
+  height: 100%;
+  background-image: url('/assets/post-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  border-radius: 20px 0 0 20px;
+  width: 100%; 
+  height: 100%;
+}
+
+.right-side {
+  padding: 40px; /* Reduced padding for smaller height */
+  height: 100%;
+  overflow-y: auto; /* Allow scroll if content exceeds */
+}
+
+.right-side h1 {
+  padding-left: 95px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.5rem; /* Reduced size for better fit */
+}
+
+input {
+  /* width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ccc;
+  outline: 0;
+  border-radius: 5px;
+  background-color: transparent;
+  margin: 4px 0 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.5s; */
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  border: none;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  background: transparent;
+  border: 2px solid #000;
+}
+
+
+input:focus {
+  border: 2px solid #000;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #000;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.login-btn {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 24px;
+  margin: 12px 0 0;
+  border: 2px solid #6b7280;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.login-btn:hover {
+  background-color: #000;
+  color: #eee;
+}
+
+.links {
+  display: flex;
+  padding-top: 10px; /* Reduced padding */
+  flex-direction: row;
+  justify-content: space-between;
+}
+.links:hover{
+  
+  cursor: pointer;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color: #000;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  transition: all 0.4s ease;
+}
+
+a:hover {
+  color: rgb(2, 41, 57);
+}
+
+.google-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.google-login .btn {
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 24px;
+  border: 2px solid #6b7280;
+  border-radius: 5px;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-login .btn:hover {
+  background-color: #000;
+  color: #eee;
+}
+
+.google-login .logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f6f6f6;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.or {
+  display: none;
+}
+
+.btn-group {
+  display: none;
+}
+
+.note{
+  color: black;
+}
+.note:hover{
+  color: white;
+}
+.logo:hover{
+  color: white;
+}
