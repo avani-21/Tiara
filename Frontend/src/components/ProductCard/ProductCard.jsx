@@ -83,7 +83,7 @@ const ProductCard = ({ productItem }) => {
       <img
         loading="lazy"
         onClick={() => handelClick()}
-        src={productItem.images && productItem.images[0] ? `http://3.7.169.158/${productItem.images[0]}` : 'placeholder-image-url.jpg'} // Fallback to a placeholder image
+        src={productItem.images && productItem.images[0] ? `${productItem.images[0]}` : 'placeholder-image-url.jpg'} // Fallback to a placeholder image
 
         alt={productItem.name}
       />

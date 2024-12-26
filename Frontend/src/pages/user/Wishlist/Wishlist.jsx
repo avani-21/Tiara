@@ -77,7 +77,7 @@ const addToCartFromWishList=async (productId,price,quantity,offerPrice)=>{
               <Row className="align-items-center">
                 <Col className="image-holder" sm={4} md={3}>
                   <img
-                    src={`http://3.7.169.158/${
+                    src={`${
                       item.productId?.images?.length > 0
                         ? item.productId?.images[0]
                         : "default-image.jpg"

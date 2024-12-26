@@ -339,7 +339,7 @@ const handleRetryPayment = async (orderId, productId) => {
                key={`${order.orderNumber}-${product.productId}-${index}`} className="order-content">
                 <div className="order-header">
                   <img
-                    src={`http://3.7.169.158/${product.image}`}
+                    src={`${product.image}`}
                     alt={product.name}
                     className="order-avatar"
                   />

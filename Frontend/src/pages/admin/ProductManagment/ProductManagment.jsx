@@ -152,7 +152,7 @@ const ProductManagement = () => {
           key={item._id}
           className={item.isListed ? 'Listed' : 'Unlisted'}
         >
-          <td><img src={`http://3.7.169.158/${item.images[0]}`} alt="Product Image" style={{width:'100px',height:'100px'}} /></td>                    
+          <td><img src={`${item.images[0]}`} alt="Product Image" style={{width:'100px',height:'100px'}} /></td>                    
           <td>{item.name}</td>
           <td className={item.stock < 10 ? 'low-stock' : 'sufficient-stock'}>{item.stock}</td>
           <td className={item.price > 100 ? 'high-price' : 'low-price'}>{item.price}</td>

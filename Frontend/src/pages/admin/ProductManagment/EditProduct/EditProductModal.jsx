@@ -162,7 +162,7 @@ const EditProductModal = ({ isOpen, onClose, productToEdit, refreshProduct }) =>
             {imagePreviews.map((preview, index) => (
               <div key={index} className="image-preview-container">
                 <img
-                src={preview.includes('blob:') ? preview : `http://3.7.169.158/${preview}`} 
+                src={preview.includes('blob:') ? preview : `${preview}`} 
                  alt={`Preview ${index}`} className="image-preview" />
                 <button type="button" className='btn' onClick={() => handleRemoveImage(index)}>Remove</button>
               </div>
