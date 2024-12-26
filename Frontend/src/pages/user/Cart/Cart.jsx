@@ -215,7 +215,7 @@ const Cart = () => {
                       <Row className="align-items-center">
                         <Col className="image-holder" sm={4} md={3}>
                           <img
-                            src={`http://localhost:3009/${
+                            src={`http://3.7.169.158/${
                               item.productId?.images?.length > 0
                                 ? item.productId?.images[0]
                                 : "default-image.jpg"

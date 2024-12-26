@@ -119,7 +119,7 @@ const ProfileCard = ({ profileData }) => {
     <div className="card" >
       <img
        style={{width:"120px",height:"120px"}}
-        src={`http://localhost:3009/${profileData.image}`}
+        src={`http://3.7.169.158/${profileData.image}`}
         alt={profileData.username}
       />
       <div className="details">

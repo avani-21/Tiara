@@ -42,7 +42,7 @@ function SingleOrderDetails() {
                         <img
                           className="img-fluid"
                           style={{ width: '90px' }}
-                          src={`http://localhost:3009/${product.image}`}
+                          src={`http://3.7.169.158/${product.image}`}
                           alt={product.name}
                         />
                         <div className="ms-3">

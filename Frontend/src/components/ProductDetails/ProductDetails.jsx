@@ -130,7 +130,7 @@ const ProductDetails = () => {
                     <img
                       key={index}
                       className="small-image"
-                      src={`http://localhost:3009/${image}`}
+                      src={`http://3.7.169.158/${image}`}
                       alt={`Product Image ${index + 1}`}
                       loading="lazy"
                       onClick={() => handleSmallImageClick(image)}
@@ -147,7 +147,7 @@ const ProductDetails = () => {
                   onMouseLeave={handleMouseLeave}
                   style={zoomStyle}
                   loading="lazy"
-                  src={`http://localhost:3009/${imageSrc}`}
+                  src={`http://3.7.169.158/${imageSrc}`}
                   alt="Product"
                 />
               </Col>

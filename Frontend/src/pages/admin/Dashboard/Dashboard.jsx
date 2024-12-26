@@ -365,7 +365,7 @@ const Dashboard = () => {
                 <td className="py-4 ps-3">{product?.name || "No product found"}</td>
                 <td className="py-3">
                   <img
-                    src={`http://localhost:3009/${product?.images}` || "https://via.placeholder.com/150"}
+                    src={`http://3.7.169.158/${product?.images}` || "https://via.placeholder.com/150"}
                     alt={product.name}
                     className="img-fluid rounded"
                     style={{ width: "50px", height: "50px" }}
