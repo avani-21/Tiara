@@ -24,7 +24,7 @@ import OrderDetails from "../src/components/orderDetails/orderDetails";
 import Order from "./pages/admin/OrderManagment/OrderManagment";
 import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
 import OtpVerification from "./components/Emailverification/OtpVerificatio";
-import ResetPassword from "./components/resetPassword/resetPassword";
+import ResetPassword from "./components/resetPassword/ResetPassword";
 import PrivateRoute from "./components/userPrivateRoute";
 import Wishlist from "./pages/user/Wishlist/Wishlist";
 import Wallet from "./components/Wallet/Wallet";
