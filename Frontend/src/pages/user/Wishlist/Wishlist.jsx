@@ -6,7 +6,7 @@ import BreadCrumb from '../../../components/Breadcrumb/Breadcrumbs'
 import './wishlist.css'
 import { deleteFromWishlist, getWishlist } from '../../../api/user/Wishlist'
 import { toast } from 'react-toastify';
-import { addToCart } from '../../../api/user/cart';
+import { addToCart } from '../../../api/user/Cart';
 import { useNavigate } from 'react-router-dom';
 
 
