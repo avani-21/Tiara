@@ -62,7 +62,7 @@ const UserSignup = () => {
 
       const formData = { username, email, password ,refferalCode};
 
-      const response = await axios.post("/api/user/signup", formData);
+      const response = await axiosInstance.post("/api/user/signup", formData);
       console.log(response);
 
       if (response.status === 200) {

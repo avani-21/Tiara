@@ -7,7 +7,7 @@ const token = localStorage.getItem("userToken");
 
 const forgetPassword = async (email) => {
   try {
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       `${API_URL}/forget-password`,
       { email },
       {
@@ -27,7 +27,7 @@ const forgetPassword = async (email) => {
 
 const resetPassword = async (email, password, confirmPassword) => {
   try {
-    const response = await axios.post(`${API_URL}/reset-password`, {
+    const response = await axiosInstance.post(`${API_URL}/reset-password`, {
       email,
       password,
       confirmPassword,

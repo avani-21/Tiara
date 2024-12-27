@@ -47,7 +47,7 @@ const ProductDetails = () => {
     const fetchSingleProduct = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`/api/user/single-product/${id}`);
+        const response = await axiosInstance.get(`/api/user/single-product/${id}`);
         if (response.status === 200) {
           setSelectedProduct(response.data.singleProduct);
       }else{
@@ -86,7 +86,7 @@ const ProductDetails = () => {
     }
 
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         `/api/user/cart/${userId}`,
         {
           productId: selectedProduct._id,

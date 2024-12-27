@@ -8,7 +8,7 @@ const createCoupen=async (couponData)=>{
   try{
     const token=localStorage.getItem('adminToken')
 
-    const response=await axios.post(`${API_URL}/create`,couponData,{
+    const response=await axiosInstance.post(`${API_URL}/create`,couponData,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -27,7 +27,7 @@ const createCoupen=async (couponData)=>{
 const getCoupen=async ()=>{
     try{
         const token=localStorage.getItem('adminToken')
-        const response=await axios.get(`${API_URL}`,{
+        const response=await axiosInstance.get(`${API_URL}`,{
             headers:{
                 Authorization:`Bearer ${token}`
             }
@@ -45,7 +45,7 @@ const getCoupen=async ()=>{
 const editCoupon=async (id,couponData)=>{
  try{
     const token=localStorage.getItem("adminToken")
-    const response= await axios.put(`${API_URL}/${id}`,couponData,{
+    const response= await axiosInstance.put(`${API_URL}/${id}`,couponData,{
       headers:{
           Authorization:`Bearer ${token}`
       }
@@ -63,7 +63,7 @@ const editCoupon=async (id,couponData)=>{
 const deleteCoupon=async (couponId)=>{
   const token=localStorage.getItem("adminToken")
   try{
-    const response=await axios.patch(`${API_URL}/${couponId}`,{},{
+    const response=await axiosInstance.patch(`${API_URL}/${couponId}`,{},{
       headers:{
         Authorization:`Bearer ${token}`
       }

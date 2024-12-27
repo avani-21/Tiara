@@ -46,7 +46,7 @@ const UserLogin = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await axios.post('/api/user/signin', formData, {
+      const response = await axiosInstance.post('/api/user/signin', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -76,7 +76,7 @@ const UserLogin = () => {
     const googleId = data.user.uid;
     const displayName = data.user.displayName; 
 
-    const response = await axios.post('/api/user/google-signin', {
+    const response = await axiosInstance.post('/api/user/google-signin', {
       email: userEmail,
       googleId,
       displayName, 

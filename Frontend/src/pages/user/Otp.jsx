@@ -41,7 +41,7 @@ function OTPVerification() {
         const emailObj = JSON.parse(localStorage.getItem("user")).email
       
         
-      const response = await axios.post('/api/user/otp-verification', {
+      const response = await axiosInstance.post('/api/user/otp-verification', {
         emailObj,
         otp: otp.join(''),
       });
@@ -67,7 +67,7 @@ function OTPVerification() {
       const email = JSON.parse(localStorage.getItem("user")).email
       console.log(email);
       
-      const response = await axios.post('/api/user/resend-otp', { email});
+      const response = await axiosInstance.post('/api/user/resend-otp', { email});
       console.log(response);
       if(response.status===200){
         toast.success("OTP Resended successfully")

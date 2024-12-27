@@ -18,7 +18,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(`/api/user/single-product/${id}`);
+        const response = await axiosInstance.get(`/api/user/single-product/${id}`);
         console.log("zxcvgh", response.data.reletedProducts);
         const reletedProducts = response.data.reletedProducts;
         const selectedProduct = response.data.singleProduct;

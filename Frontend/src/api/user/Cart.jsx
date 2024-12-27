@@ -10,7 +10,7 @@ console.log("user", userId);
 const removeFromCart = async (productId) => {
   try {
     const token = localStorage.getItem("userToken");
-    const response = await axios.delete(`${API_URL}/${userId}/${productId}`, {
+    const response = await axiosInstance.delete(`${API_URL}/${userId}/${productId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -34,7 +34,7 @@ const clearCart = async () => {
     const token = localStorage.getItem("userToken");
     console.log(token, "token");
 
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       `${API_URL}/clear-cart/${userId}`,
       {},
       {
@@ -57,7 +57,7 @@ const clearCart = async () => {
 const addToCart = async (productId, price, quantity,offerPrice) => {
   const token=localStorage.getItem('userToken')
   try {
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       `${API_URL}/${userId}`,
       {
         productId,

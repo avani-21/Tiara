@@ -20,7 +20,7 @@ function CategoryMangment() {
         const token = localStorage.getItem("adminToken");
         console.log(1);
         
-        const categories = await axios.get("/api/admin/categories", {
+        const categories = await axiosInstance.get("/api/admin/categories", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -48,7 +48,7 @@ function CategoryMangment() {
       );
       if (conformation) {
         const token = localStorage.getItem("adminToken");
-        const response = await axios.patch(
+        const response = await axiosInstance.patch(
           `/api/admin/categories/${categoryId}`,
           { isListed: !currentStatus },
           {
@@ -86,7 +86,7 @@ function CategoryMangment() {
       }
   
       const token = localStorage.getItem("adminToken");
-      const response = await axios.put(
+      const response = await axiosInstance.put(
         `/api/admin/categories/${selectedCategory._id}`,
         { name: newName },
         {
@@ -122,7 +122,7 @@ function CategoryMangment() {
       }
   
       const token = localStorage.getItem("adminToken");
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         `/api/admin/categories`,
         { name: newCategory },
         {

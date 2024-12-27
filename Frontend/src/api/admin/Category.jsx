@@ -5,7 +5,7 @@ const API_URL='/api/admin/categories';
 const getCategories=async ()=>{
     const token=localStorage.getItem("adminToken")
     try{
-     const response=await axios.get(`${API_URL}`,{
+     const response=await axiosInstance.get(`${API_URL}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -22,7 +22,7 @@ const getCategories=async ()=>{
 const getTopCategories=async ()=>{
     const token=localStorage.getItem("adminToken")
     try{
-      const response=await axios.get(`${API_URL}/top-catogories`,{
+      const response = await axiosInstance.get(`${API_URL}/top-catogories`,{
         headers:{
             Authorization:`Bearer ${token}`
         }

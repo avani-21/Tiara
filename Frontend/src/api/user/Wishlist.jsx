@@ -9,7 +9,7 @@ const token=localStorage.getItem('userToken')
 const getWishlist=async ()=>{
     const token=localStorage.getItem('userToken')
  try{
-    const response=await axios.get(`${API_URL}/${userId}`,{
+    const response=await axiosInstance.get(`${API_URL}/${userId}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -26,7 +26,7 @@ const getWishlist=async ()=>{
 const addToWishlist=async (productId,quantity,price)=>{
     const token=localStorage.getItem('userToken')
 try{
-    const response=await axios.post(`${API_URL}/${userId}`,{productId,quantity,price},{
+    const response=await axiosInstance.post(`${API_URL}/${userId}`,{productId,quantity,price},{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -43,7 +43,7 @@ try{
 const deleteFromWishlist=async (productId)=>{
     const token=localStorage.getItem('userToken')
     try{
-       const response=await axios.delete(`${API_URL}/${userId}/${productId}`,{
+       const response=await axiosInstance.delete(`${API_URL}/${userId}/${productId}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }

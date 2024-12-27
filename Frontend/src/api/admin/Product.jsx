@@ -7,7 +7,7 @@ const getTopProducts=async ()=>{
     const token = localStorage.getItem("adminToken")
 
   try{
-    const response=await axios.get(`${API_URL}`,{
+    const response=await axiosInstance.get(`${API_URL}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -24,7 +24,7 @@ const getTopProducts=async ()=>{
 const allProducts=async ()=>{
   const token=localStorage.getItem('adminToken')
   try{
-   const response=await axios.get(`${API_URL_PRODUCT}`,{
+   const response=await axiosInstance.get(`${API_URL_PRODUCT}`,{
     headers:{
       Authorization:`Bearer ${token}`
     }

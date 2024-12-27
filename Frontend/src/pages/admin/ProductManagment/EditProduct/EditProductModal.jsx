@@ -84,7 +84,7 @@ const EditProductModal = ({ isOpen, onClose, productToEdit, refreshProduct }) =>
 
       formData.append('removedImages', JSON.stringify(productToEdit.images.filter((_, i) => !imagePreviews.includes(productToEdit.images[i]))));
       const token = localStorage.getItem('adminToken');
-      const response = await axios.put(`/api/admin/product/${productToEdit._id}`, formData, {
+      const response = await axiosInstance.put(`/api/admin/product/${productToEdit._id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

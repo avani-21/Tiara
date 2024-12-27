@@ -16,9 +16,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.json());
-const corsOrigin=process.env.CORS_ORIGIN || "*";
+const corsOrigin = process.env.CORS_ORIGIN || "http://localhost:5174";
 app.use(cors({ origin: corsOrigin }));
-
+ 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
@@ -33,8 +33,8 @@ app.use((req, res, next) => {
 });
 
 
-const PORT=process.env.PORT || 3009
+const PORT = process.env.PORT || 3000
 
-app.listen(PORT,() => {
-  console.log("server started");
+app.listen(PORT, () => {
+  console.log("server started on port: ", PORT);
 });

@@ -222,7 +222,7 @@ const handleRetryPayment = async (orderId, productId) => {
   try {
     const token = localStorage.getItem("userToken");
 
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       "/api/user/order/retry-payment",
       { razorId: orderId, productId },
       {
@@ -244,7 +244,7 @@ const handleRetryPayment = async (orderId, productId) => {
       order_id: razorpayOrder.id,
       handler: async function (response) {
         try {
-          await axios.post(
+          await axiosInstance.post(
             "/api/user/order/change-payment-status",
             {
               razorId: razorpayOrder.id,
@@ -303,7 +303,7 @@ const handleRetryPayment = async (orderId, productId) => {
     paymentObject.on("payment.failed", async function (response) {
       console.error("Payment failed:", response);
 
-      await axios.post(
+      await axiosInstance.post(
         "/api/user/order/change-payment-status",
         {
           razorId: razorpayOrder.id,

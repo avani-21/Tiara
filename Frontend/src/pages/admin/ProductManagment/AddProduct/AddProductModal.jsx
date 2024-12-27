@@ -78,7 +78,7 @@ const AddProductModal = ({ isOpen, onClose, refreshProduct}) => {
     try {
       const token =localStorage.getItem('adminToken')
       console.log(token)
-      const response = await axios.post('/api/admin/product', formData, {
+      const response = await axiosInstance.post('/api/admin/product', formData, {
         headers: {
           Authorization:`Bearer ${token}`,
         'Content-Type': 'multipart/form-data'

@@ -10,7 +10,7 @@ const getWallet = async () => {
   const token = localStorage.getItem("userToken");
 const userId = localStorage.getItem("userId");
   try {
-    const response = await axios.get(`${API_URL}/${userId}`, {
+    const response = await axiosInstance.get(`${API_URL}/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -35,7 +35,7 @@ const userId = localStorage.getItem("userId");
       navigate('/login');
       return;
     }
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       `${API_URL}/add/${userId}`,
       { amount },
       {
@@ -63,7 +63,7 @@ const walletTransaction=async (finalPrice)=>{
   
 
 try{
-  const response=await axios.post(`${API_URL}/trasaction`,{userId,amount:finalPrice},{
+  const response=await axiosInstance.post(`${API_URL}/trasaction`,{userId,amount:finalPrice},{
     headers:{
       Authorization:`Bearer ${token}`
     }

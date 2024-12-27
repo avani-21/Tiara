@@ -49,7 +49,7 @@ const ProfileCard = ({ profileData }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem("userToken");
-      const response = await axios.put(
+      const response = await axiosInstance.put(
         `/api/user/profile/${profileData._id}`,
         {
           username,
@@ -90,7 +90,7 @@ const ProfileCard = ({ profileData }) => {
     try {
       setLoading(true);
       const token = localStorage.getItem("userToken");
-      const response = await axios.patch(
+      const response = await axiosInstance.patch(
         `/api/user/profile/${id}`,
         { newPassword },
         {

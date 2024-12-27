@@ -8,7 +8,7 @@ const API_URL="/api/user/coupon"
 const getCoupon=async ()=>{
     const token=localStorage.getItem("userToken") 
     try{
-    const response=await axios.get(`${API_URL}`,{
+    const response=await axiosInstance.get(`${API_URL}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }
@@ -25,7 +25,7 @@ const applyCoupon=async ()=>{
     const token=localStorage.getItem("userToken")
     const userId=localStorage.getItem("userId")
     try{
-     const response=await axios.post(`${API_URL}/apply-coupon/${userId}`,{code:couponCode},{
+     const response=await axiosInstance.post(`${API_URL}/apply-coupon/${userId}`,{code:couponCode},{
         headers:{
             Authorization:`Bearer ${token}`
         }

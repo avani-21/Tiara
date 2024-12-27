@@ -6,7 +6,7 @@ import useWindowScrollToTop from "../../../hooks/useWindowScrollToTop";
 import Header from "../../../components/Header/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from "../../../api/axiosInstance";
 import BreadCrumb from "../../../components/Breadcrumb/Breadcrumbs";
 
 const Home = () => {
@@ -16,10 +16,8 @@ const Home = () => {
   useEffect(() => {
     try {
       const fetchProducts = async () => {
-        const response = await axios.get("/api/user/product");
-        console.log('qwertyuigsasdfgh',response);
+        const response = await axiosInstance.get("/api/user/product");
         const item = response.data.allProductWithOffers;
-        console.log(item);
 
         if (response.status === 200) {
           setItem(item);

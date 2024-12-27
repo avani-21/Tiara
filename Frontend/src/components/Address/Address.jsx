@@ -44,7 +44,7 @@ export default function AddressCard() {
     console.log('address fetched');
     try {
       const token = localStorage.getItem("userToken");
-      const response = await axios.get(`/api/user/address/${userId}`, {
+      const response = await axiosInstance.get(`/api/user/address/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -96,7 +96,7 @@ export default function AddressCard() {
     try {
       setLoading(true);
       const token = localStorage.getItem("userToken");
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         `/api/user/address/${userId}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
@@ -133,7 +133,7 @@ export default function AddressCard() {
     try {
       setLoading(true);
       const token = localStorage.getItem("userToken");
-      const response = await axios.put(`/api/user/address/${formData._id}`, formData, { headers: { Authorization: `Bearer ${token}` } });
+      const response = await axiosInstance.put(`/api/user/address/${formData._id}`, formData, { headers: { Authorization: `Bearer ${token}` } });
   
       if (response.status === 200) {
         toast.success("Address updated successfully");
@@ -162,7 +162,7 @@ export default function AddressCard() {
   const handleDeleteSubmit = async (addressId) => {
     try {
       const token = localStorage.getItem("userToken");
-      const response = await axios.delete(`/api/user/address/${addressId}`, {
+      const response = await axiosInstance.delete(`/api/user/address/${addressId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.status === 200) {

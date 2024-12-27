@@ -35,7 +35,7 @@ export default function Login() {
   
     if(!validateForm()) return 
     try{
-      const response=await axios.post('/api/admin/admin-login',formData,{
+      const response=await axiosInstance.post('/api/admin/admin-login',formData,{
         headers:{
           "Content-Type":'application/json'
         }

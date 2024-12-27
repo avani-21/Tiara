@@ -74,7 +74,7 @@ function Checkout() {
     try {
       const token = localStorage.getItem("userToken");
       console.log(token);
-      const response = await axios.get(`/api/user/address/${userId}`, {
+      const response = await axiosInstance.get(`/api/user/address/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log(response);
@@ -95,7 +95,7 @@ function Checkout() {
       const token = localStorage.getItem("userToken");
       console.log(2);
 
-      const response = await axios.get(`/api/user/cart/${userId}`, {
+      const response = await axiosInstance.get(`/api/user/cart/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -150,7 +150,7 @@ function Checkout() {
 
    
       if (formData._id) {
-        const response = await axios.put(
+        const response = await axiosInstance.put(
           `/api/user/address/${formData._id}`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
@@ -167,7 +167,7 @@ function Checkout() {
           );
         }
       } else {
-        const response = await axios.post(
+        const response = await axiosInstance.post(
           `/api/user/address/${userId}`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
@@ -192,7 +192,7 @@ function Checkout() {
     if (window.confirm("Are you sure you want to delete this address?")) {
       try {
         const token = localStorage.getItem("userToken");
-        const response = await axios.delete(`/api/user/address/${addressId}`, {
+        const response = await axiosInstance.delete(`/api/user/address/${addressId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -263,7 +263,7 @@ function Checkout() {
       console.log(typeof(amount));
       
 
-      const response = await axios.post("/api/user/order/createTransaction", {
+      const response = await axiosInstance.post("/api/user/order/createTransaction", {
         amount: amount,
         currency: "INR", 
         userId: selectedAddress?.userId, 
@@ -305,7 +305,7 @@ function Checkout() {
             // });
   
 
-            const paymentUpdateResponse = await axios.post("/api/user/order/change-payment-status", {
+            const paymentUpdateResponse = await axiosInstance.post("/api/user/order/change-payment-status", {
               razorId: order.id,
               paymentStatus: "payment success", 
             }, {
@@ -349,7 +349,7 @@ function Checkout() {
   
           console.log("User Token:", token);
 
-          const failResponse = await axios.post("/api/user/order/change-payment-status", {
+          const failResponse = await axiosInstance.post("/api/user/order/change-payment-status", {
             razorId:order.id,
             order,
             paymentStatus: "payment failed",  
@@ -381,7 +381,7 @@ function Checkout() {
       const token = localStorage.getItem("userToken");
 
     
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "/api/user/place-order",
         {
           userId,

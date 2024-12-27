@@ -35,7 +35,7 @@ import { addToWishlist } from "../../api/user/Wishlist";
         return
       }
       console.log('token',token);
-      const response=await axios.post(`/api/user/cart/${userId}`,{
+      const response=await axiosInstance.post(`/api/user/cart/${userId}`,{
         productId: productItem._id, 
         quantity: 1,
         price:productItem.price,

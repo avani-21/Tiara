@@ -22,7 +22,7 @@ const Cart = () => {
   const fetchCart = async () => {
     try {
       const token = localStorage.getItem("userToken");
-      const response = await axios.get(`/api/user/cart/${userId}`, {
+      const response = await axiosInstance.get(`/api/user/cart/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -49,7 +49,7 @@ const Cart = () => {
       const token = localStorage.getItem("userToken");
       console.log(22);
 
-      const response = await axios.patch(
+      const response = await axiosInstance.patch(
         `/api/user/cart/${userId}/increase/${productId}`,
         {},
         {
@@ -76,7 +76,7 @@ const Cart = () => {
     if (discountedPrice !== null) return;
     try {
       const token = localStorage.getItem("userToken");
-      const response = await axios.patch(
+      const response = await axiosInstance.patch(
         `/api/user/cart/${userId}/decrease/${productId}`,
         {},
         {
@@ -133,7 +133,7 @@ const Cart = () => {
     try {
       const token = localStorage.getItem("userToken");
   
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         `/api/user/coupon/apply-coupon/${userId}`,
         { code: couponCode }, 
         {

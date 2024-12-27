@@ -5,7 +5,7 @@ const API_URL='/api/admin/users'
 const getUsers=async ()=>{
 try{
     const token=localStorage.getItem('adminToken')
-    const response=await axios.get(`${API_URL}`,{
+    const response=await axiosInstance.get(`${API_URL}`,{
         headers:{
             Authorization:`Bearer ${token}`
         }

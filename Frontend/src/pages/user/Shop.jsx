@@ -27,7 +27,7 @@ const Shop = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get("/api/user/product",{
+      const response = await axiosInstance.get("/api/user/product",{
         params:{
           category:selectedCategories.length ? selectedCategories.join(',') : 'All',
           sort:sortQuery,

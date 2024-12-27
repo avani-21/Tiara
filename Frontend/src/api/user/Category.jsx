@@ -4,7 +4,7 @@ const API_URL="/api/user/category"
 
 const getCategory=async ()=>{
   try{
-    const response=await axios.get(`${API_URL}`)
+    const response=await axiosInstance.get(`${API_URL}`)
     if(response){
         return response.data
     }

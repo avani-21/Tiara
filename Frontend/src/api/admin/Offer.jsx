@@ -7,7 +7,7 @@ const createOffer=async (offerData)=>{
     try{
       const token=localStorage.getItem('adminToken')
   
-      const response=await axios.post(`${API_URL}/create`,offerData,{
+      const response=await axiosInstance.post(`${API_URL}/create`,offerData,{
           headers:{
               Authorization:`Bearer ${token}`
           }
@@ -26,7 +26,7 @@ const createOffer=async (offerData)=>{
   const getOffer=async ()=>{
     try{
     const token=localStorage.getItem("adminToken")
-    const response =await axios.get(`${API_URL}`,{
+    const response =await axiosInstance.get(`${API_URL}`,{
       headers:{
         Authorization:`Bearer ${token}`
       }
@@ -42,7 +42,7 @@ const createOffer=async (offerData)=>{
   const deActivate=async (offerId)=>{
     try{
       const token=localStorage.getItem("adminToken")
-      const response=await axios.patch(`${API_URL}/toggle-status/${offerId}`,{},{
+      const response=await axiosInstance.patch(`${API_URL}/toggle-status/${offerId}`,{},{
         headers:{
           Authorization:`Bearer ${token}`
         }
@@ -57,7 +57,7 @@ const createOffer=async (offerData)=>{
  const editOffer=async (offerId,offerData)=>{
   const token=localStorage.getItem("adminToken")
   try{
-    const response=await axios.put(`${API_URL}/edit-offer/${offerId}`,offerData,{
+    const response=await axiosInstance.put(`${API_URL}/edit-offer/${offerId}`,offerData,{
       headers:{
         Authorization:`Bearer ${token}`
       }

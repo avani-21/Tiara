@@ -94,7 +94,7 @@ function OfferManagment() {
 
   const fetchCategories = async () => {
     try {
-      const categories = await axios.get("/api/admin/categories", {
+      const categories = await axiosInstance.get("/api/admin/categories", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -109,7 +109,7 @@ function OfferManagment() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('/api/admin/product', {
+      const response = await axiosInstance.get('/api/admin/product', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

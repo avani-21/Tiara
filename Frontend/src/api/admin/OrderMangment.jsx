@@ -8,7 +8,7 @@ const userId=localStorage.getItem('userId')
 const fetchOrderData=async (page,limit)=>{
     try{
        
-        const response=await axios.get(`${API_URL}`,{
+        const response=await axiosInstance.get(`${API_URL}`,{
           params:{
             page,
             limit,
@@ -34,7 +34,7 @@ const fetchOrderData=async (page,limit)=>{
 
 const statusUpdate=async (orderNumber,productId,newStatus)=>{
     try{
-      const response=await axios.patch(`${API_URL}/${orderNumber}/status`,
+      const response=await axiosInstance.patch(`${API_URL}/${orderNumber}/status`,
         {
          status:newStatus,
          itemId:productId
@@ -59,7 +59,7 @@ const cancelOrder=async (productId,orderId)=>{
     try{
         console.log('cancel order',token);
         
-        const response = await axios.patch(`${API_URL}/cancel-order/${userId}/${orderId}/${productId}`, {}, {
+        const response = await axiosInstance.patch(`${API_URL}/cancel-order/${userId}/${orderId}/${productId}`, {}, {
            headers: {
              Authorization: `Bearer ${token}`
            }
@@ -77,7 +77,7 @@ const cancelOrder=async (productId,orderId)=>{
 const fetchOrder=async ()=>{
   try{
      
-      const response=await axios.get(`${API_URL}`,{
+      const response=await axiosInstance.get(`${API_URL}`,{
           headers:{
              Authorization:`Bearer ${token}`
           }

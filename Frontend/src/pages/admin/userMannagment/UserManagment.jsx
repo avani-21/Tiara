@@ -13,7 +13,7 @@ const TableComponent = () => {
         const token = localStorage.getItem('adminToken');
 
         
-        const response = await axios.get('/api/admin/users', {
+        const response = await axiosInstance.get('/api/admin/users', {
           headers: {
              Authorization: `Bearer ${token}`
           }
@@ -36,7 +36,7 @@ const TableComponent = () => {
       
       const user=users.find(user=>user._id===userId)
       if(user.isBlocked){
-        const response=await axios.patch(`/api/admin/users/${userId}/unblock`,{},{
+        const response=await axiosInstance.patch(`/api/admin/users/${userId}/unblock`,{},{
           headers:{
             Authorization:`Bearer ${token}`
           }
@@ -50,7 +50,7 @@ const TableComponent = () => {
           );
         }
       }else{
-        const result=await axios.patch(`/api/admin/users/${userId}/block`,{},{
+        const result=await axiosInstance.patch(`/api/admin/users/${userId}/block`,{},{
           headers:{
             Authorization:`Bearer ${token}`
           }

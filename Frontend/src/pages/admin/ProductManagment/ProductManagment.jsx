@@ -17,7 +17,7 @@ const ProductManagement = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await axios.get('/api/admin/product', {
+        const response = await axiosInstance.get('/api/admin/product', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -42,7 +42,7 @@ const ProductManagement = () => {
   const refreshProduct = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('/api/admin/product', {
+      const response = await axiosInstance.get('/api/admin/product', {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (response.status === 200) {
@@ -78,7 +78,7 @@ const ProductManagement = () => {
         let response;
         if (product.isListed) {
      
-          response = await axios.patch(
+          response = await axiosInstance.patch(
             `/api/admin/product/unlist/${productId}`,
             {},
             {
@@ -89,7 +89,7 @@ const ProductManagement = () => {
           );
         } else {
         
-          response = await axios.patch(
+          response = await axiosInstance.patch(
             `/api/admin/product/list/${productId}`,
             {},
             {
