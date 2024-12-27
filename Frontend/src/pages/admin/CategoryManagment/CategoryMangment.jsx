@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../CategoryManagment/categoryManagment.css";
+import "./categoryManagment.css";
 import Navbar from '../Navbar-Admin/Header'
 import EditCategoryModal from "./EditModal/EditModal";
 import AddCategoryModal from "./AddModal/AddCategoryModal";
