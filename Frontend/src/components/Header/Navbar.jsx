@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle"; // Profile icon
-import "./navbar.css";
+import "./Navbar.css";
 
 const NavBar = () => {
   const [expand, setExpand] = useState(false);

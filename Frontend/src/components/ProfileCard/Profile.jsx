@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./profile.css";
+import "./Profile.css";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
