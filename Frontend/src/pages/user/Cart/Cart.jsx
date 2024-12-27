@@ -4,7 +4,7 @@ import NavBar from "../../../components/Header/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { toast } from "react-toastify";
 import axios from "axios";
-import { removeFromCart } from "../../../api/user/cart";
+import { removeFromCart } from "../../../api/user/Cart";
 import { useNavigate } from "react-router-dom";
 import BreadCrumb from "../../../components/Breadcrumb/Breadcrumbs";
 import { applyCoupon, getCoupon } from "../../../api/user/Coupon";

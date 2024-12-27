@@ -8,12 +8,11 @@ import axios from 'axios'
 import { addToWishlist } from "../../api/user/Wishlist";
 
 
-const ProductCard = ({ productItem }) => {
+  const ProductCard = ({ productItem }) => {
   const router = useNavigate();
   const [cart,setCart]=useState()
   const [wishList,setWishList]=useState('')
   const navigate=useNavigate()
-
 
   
   const handelClick = () => {
