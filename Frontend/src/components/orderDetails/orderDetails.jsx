@@ -353,7 +353,7 @@ const handleRetryPayment = async (orderId, productId) => {
                 <div className="order-details">
                   <p><strong>Status:</strong> {product.itemStatus}</p>
                   <p><strong>Price:</strong> {Math.round(product.offerPrice ? product.offerPrice :product.price)}</p>
-                  <p><strong>Order total:</strong> {order.orderSubtotal}</p>
+                  <p><strong>Order total:</strong> {order.orderSubtotal>order.orderTotal ? order.orderSubtotal : orderTotal}</p>
                   <p><strong>Quantity:</strong> {product.quantity}</p>
                   <p><strong>Payment Method:</strong> {order.paymentMethord}</p>
                   <p><strong>Phone:</strong> {order.phone}</p>
