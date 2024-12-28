@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AddProductModal.css';
-import axios from 'axios';
+import axiosInstance from '../../../../api/axiosInstance';
 import { toast } from 'react-toastify';
 
 const AddProductModal = ({ isOpen, onClose, refreshProduct}) => {

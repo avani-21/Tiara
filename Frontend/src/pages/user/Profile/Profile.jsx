@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axiosInstance from '../../../api/axiosInstance';
 import React,{useState,useEffect} from 'react'
 import ProfileCard from '../../../components/ProfileCard/Profile';
 import Loader from '../../../components/Loader/Loader';

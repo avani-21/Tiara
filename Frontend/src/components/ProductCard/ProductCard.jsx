@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { products } from "../../utils/products";
 import { useState } from "react";
-import axios from 'axios'
+import axiosInstance from "../../api/axiosInstance";
 import { addToWishlist } from "../../api/user/Wishlist";
 
 

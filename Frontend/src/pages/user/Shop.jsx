@@ -7,7 +7,7 @@ import Banner from "../../components/Banner/Banner";
 import useWindowScrollToTop from "../../hooks/useWindowScrollToTop";
 import NavBar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
-import axios from "axios";
+import axiosInstance from "../../api/axiosInstance";
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumbs";
 import Pagination from "../../components/Pagination/Pagination";
 import CategoryFilter from "../../components/categoryFilter/CategoryFilter";

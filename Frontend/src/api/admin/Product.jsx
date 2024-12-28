@@ -1,4 +1,4 @@
-import axios from "axios"
+import axiosInstance from "../axiosInstance"
 
 const API_URL='/api/admin/products/top-products'
 const API_URL_PRODUCT="/api/admin/product"

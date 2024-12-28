@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import { toast } from "react-toastify";
-import axios from "axios";
+import axiosInstance from "../../api/axiosInstance";
 import { useParams } from "react-router-dom";
 
 const modalStyle = {

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import axiosInstance from "../../api/axiosInstance";
 import pageNotFount from '../../pages/PageNotFound/PageNotFound'
 import { toast } from "react-toastify";
 

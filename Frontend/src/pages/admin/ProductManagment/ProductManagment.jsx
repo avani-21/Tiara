@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './ProductManagment.css';
 import Navbar from '../../admin/Navbar-Admin/Header';
 import AddProductModal from './AddProduct/AddProductModal';
 import { toast } from 'react-toastify';
+import axiosInstance from '../../../api/axiosInstance';
 import EditProductModal from './EditProduct/EditProductModal';
 
 const ProductManagement = () => {

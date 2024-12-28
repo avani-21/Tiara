@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../../api/axiosInstance';
 import './UserManagment.css';
 import Navbar from '../../admin/Navbar-Admin/Header'
 

@@ -9,6 +9,7 @@ import Sidebar from "../ProfileCard/Sidebar";
 import jsPDF from 'jspdf'
 import axios from 'axios';
 import "jspdf-autotable";
+import axiosInstance from '../../api/axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import Pagination from '../Pagination/Pagination';
 

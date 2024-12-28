@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../Header/Navbar';
+import axiosInstance from '../../api/axiosInstance';
 import Footer from '../Footer/Footer';
 
 function OTPVerification() {

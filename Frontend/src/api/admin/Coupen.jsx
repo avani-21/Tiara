@@ -1,4 +1,5 @@
-import axios from "axios"
+import axiosInstance from "../axiosInstance"
+
 import { toast } from "react-toastify"
 
 const API_URL='/api/admin/coupon'

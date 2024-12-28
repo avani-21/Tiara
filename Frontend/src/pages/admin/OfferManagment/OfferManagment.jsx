@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from '../Navbar-Admin/Header';
 import { createOffer, editOffer, getOffer } from "../../../api/admin/Offer";  // Ensure this is correct
-import axios from "axios";
+import axiosInstance from "../../../api/axiosInstance";
 import { toast } from "react-toastify";
 import './offer.css';
 import { deActivate } from "../../../api/admin/Offer";

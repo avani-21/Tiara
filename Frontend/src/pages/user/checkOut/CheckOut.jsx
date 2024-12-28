@@ -7,7 +7,9 @@ import Radio from "@mui/material/Radio";
 import {clearCart }from '../../../api/user/Cart'
 import { Container, Row, Col } from "react-bootstrap";
 import NavBar from "../../../components/Header/Navbar";
-import axios from "axios";
+import axiosInstance from "../../../api/axiosInstance";
+
+
 import {
   Dialog,
   DialogTitle,

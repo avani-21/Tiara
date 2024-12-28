@@ -3,7 +3,7 @@ import "./CategoryManagment.css";
 import Navbar from '../Navbar-Admin/Header'
 import EditCategoryModal from "./EditModal/EditModal";
 import AddCategoryModal from "./AddModal/AddCategoryModal";
-import axios from 'axios'
+import axiosInstance from "../../../api/axiosInstance";
 import {toast} from 'react-toastify'
 
 function CategoryMangment() {

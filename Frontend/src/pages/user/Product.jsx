@@ -8,7 +8,7 @@ import ProductReviews from "../../components/ProductReviews/ProductReviews";
 import useWindowScrollToTop from "../../hooks/useWindowScrollToTop";
 import NavBar from "../../components/Header/Navbar";
 import Footer from "../../components/Footer/Footer";
-import axios from "axios";
+import axiosInstance from "../../api/axiosInstance";
 
 const Product = () => {
   const { id } = useParams();

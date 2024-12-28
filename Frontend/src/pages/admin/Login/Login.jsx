@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './AdminLogin.css';
 import {useNavigate} from 'react-router-dom'
-import axios from 'axios';
+import axiosInstance from '../../../api/axiosInstance';
 
 
 export default function Login() {
