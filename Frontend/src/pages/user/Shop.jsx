@@ -21,7 +21,7 @@ const Shop = () => {
   const [searchQuery, setSearchQuery] = useState(""); 
   const [currentPage, setCurrentPage] = useState(1);
   const [sortQuery, setSortQuery] = useState("");
-  const entriesPerPage = 3;
+  const entriesPerPage = 10;
 
   
 
