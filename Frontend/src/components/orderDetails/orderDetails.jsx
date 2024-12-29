@@ -182,7 +182,7 @@ const OrderDetails = () => {
         ]);
       }
   
-      tableData.push(["", "Total", "", "", `${(order.orderTotal + 100).toFixed(2)}`]);
+      tableData.push(["", "Total", "", "", `${(order.orderTotal).toFixed(2)}`]);
 
   
       doc.autoTable({
