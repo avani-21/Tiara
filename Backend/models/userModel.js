@@ -37,7 +37,7 @@ const userschema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: 'uploads/profile.jpg',
+      default: 'https://res.cloudinary.com/danyvuvkm/image/upload/v1735461217/uploads/products/images-1735461216300-475652984.jpg',
     },
     referalCode:{
     type:String,
