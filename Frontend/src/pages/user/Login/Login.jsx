@@ -98,7 +98,6 @@ const UserLogin = () => {
 };
 
   
-
   return (
     <>
         <Navbar/>
@@ -154,6 +153,7 @@ const UserLogin = () => {
       <Footer/>
     </>
   );
+
 };
 
 export default UserLogin;

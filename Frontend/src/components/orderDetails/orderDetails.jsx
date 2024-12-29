@@ -245,7 +245,7 @@ const handleRetryPayment = async (orderId, productId) => {
       order_id: razorpayOrder.id,
       handler: async function (response) {
         try {
-          await axiosInstance.post(
+          const updateResponse=await axiosInstance.post(
             "/api/user/order/change-payment-status",
             {
               razorId: razorpayOrder.id,
@@ -275,8 +275,7 @@ const handleRetryPayment = async (orderId, productId) => {
                 return order;
               })
             );
-            await fetchOrder();
-            triggerReRender()
+            fetchOrder();
             toast.success("Payment successful! The product status has been updated.");
           }
         } catch (error) {

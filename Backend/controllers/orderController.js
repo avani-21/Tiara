@@ -493,15 +493,16 @@ const returnPayment = async (req, res) => {
 const handlePaymentStatus = async (req, res) => {
   try {
     const { razorId, paymentStatus } = req.body; 
-    console.log(req.body);
-
+  
+     console.log(req.body);
   
     if (!["payment failed", "payment success"].includes(paymentStatus)) {
       return res.status(400).json({ message: "Invalid payment status" });
     }
 
-
-    const order = await Order.findOne({ razorId });
+   
+    const order = await Order.findOne(razorId);
+    console.log(order);
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
     }
@@ -512,7 +513,6 @@ const handlePaymentStatus = async (req, res) => {
       item.itemStatus = paymentStatus;
     });
 
-    console.log(order.orderItems.itemStatus);
     await order.save();
   //  console.log(order);
    

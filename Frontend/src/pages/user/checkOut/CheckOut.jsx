@@ -301,10 +301,7 @@ function Checkout() {
   
         
           try {
-            // await handlePlaceOrder({
-            //   paymentMethod: "razorpay",
-            //   paymentDetails: response,
-            // });
+            
   
 
             const paymentUpdateResponse = await axiosInstance.post("/api/user/order/change-payment-status", {

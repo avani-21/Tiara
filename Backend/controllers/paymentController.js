@@ -16,7 +16,14 @@ const createTransaction = async (req, res) => {
     };
   
     try {
-      const razorpayOrder = await razorpay.orders.create(options);
+     
+      const existingOrder = await Order.findOne({
+        userId,
+        orderStatus: "pending payment",
+    });
+
+
+       const razorpayOrder = await razorpay.orders.create(options);
       const orderNumber = `ORD${uuidv4().slice(0, 6).toUpperCase()}`;
 
       const newOrder = new Order({
