@@ -256,15 +256,18 @@ const googleSignin = async (req, res) => {
       return res.status(400).json({ message: "Google ID is required" });
     }
     console.log(2);
+    
 
     let user = await userSchema.findOne({ email });
     console.log(user);
+    const generateRefferalCode=Math.random().toString(36).slice(2,8).toUpperCase();
 
     if (!user) {
       user = new userSchema({
         email,
         googleId,
         username: displayName,
+        referalCode:generateRefferalCode,
         password: "google",
       });
       console.log(user);
@@ -274,6 +277,11 @@ const googleSignin = async (req, res) => {
       user.googleId = googleId;
       await user.save();
     }
+    const newWallet=await Wallet({
+      userId:user.googleId,
+      balance:user.balance ? user.balance : 0 ,
+    })
+    await newWallet.save();
 
     const token = jwt.sign(
       { id: user._id, email: user.email , role:"user"},

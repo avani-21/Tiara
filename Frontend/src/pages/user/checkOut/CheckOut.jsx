@@ -399,7 +399,7 @@ function Checkout() {
 
       if (response.status === 200) {
         toast.success("Order placed successfully");
-        await clearCart();
+        clearCart();
         navigate("/success");
       }
     } catch (error) {
