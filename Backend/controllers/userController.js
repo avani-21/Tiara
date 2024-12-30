@@ -286,7 +286,7 @@ const googleSignin = async (req, res) => {
     const token = jwt.sign(
       { id: user._id, email: user.email , role:"user"},
       process.env.JWT_SECRETKEY,
-      { expiresIn: "1h" }
+      { expiresIn: "7d" }
     );
 
     return res.status(200).json({
