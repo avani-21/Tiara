@@ -163,7 +163,7 @@ const Wallet = () => {
            
      <table
             className="table table-light table-striped rounded"
-            style={{ borderCollapse: "collapse" }}
+            style={{ borderCollapse: "collapse" ,marginLeft:"40%" }}
           >
             <caption style={{ captionSide: "top" }}>TRANSACTION HISTORY</caption>
             <thead className="table-dark py-3">
