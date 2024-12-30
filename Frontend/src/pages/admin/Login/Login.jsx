@@ -77,6 +77,7 @@ export default function Login() {
           onChange={handleChanges}
           value={formData.email}
         />
+        {error.email && <p style={{ color: 'red' }}>{error.email}</p>}
         <input
           type='password'
           placeholder='password'
@@ -85,10 +86,10 @@ export default function Login() {
           onChange={handleChanges}
           value={formData.password}
         />
-{error.email && <p style={{ color: 'red' }}>{error.email}</p>}
-{error.password && <p style={{ color: 'red' }}>{error.password}</p>}
 
-        <button className='form-button' type='submit'>Sign In</button>
+   {error.password && <p style={{ color: 'red' }}>{error.password}</p>}
+
+        <button className='form-button' type='submit'>{loading ? "Signing In ..." : "Sign In"}</button>
       </form>
     </div>
     </>
