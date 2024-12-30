@@ -278,8 +278,8 @@ const googleSignin = async (req, res) => {
       await user.save();
     }
     const newWallet=await Wallet({
-      userId:user.googleId,
-      balance:user.balance ? user.balance : 0 ,
+      userId:user._id,
+      balance:user.balance || 0 ,
     })
     await newWallet.save();
 
