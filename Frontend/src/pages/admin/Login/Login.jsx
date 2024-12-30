@@ -40,7 +40,10 @@ export default function Login() {
           "Content-Type":'application/json'
         }
       })
+
+      console.log(response)
       if(response.status===200){
+        console.log(response)
         localStorage.setItem('adminToken',response.data.token)
         setFormData({email:" ",password:" "}),
         navigate('/user')
