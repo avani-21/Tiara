@@ -6,13 +6,14 @@ import axiosInstance from '../../../api/axiosInstance';
 
 export default function Login() {
 
-   const [formData,setFormData]=useState({email:" ",password:" "})
+   const [formData,setFormData]=useState({email:"",password:""})
    const [error,setError]=useState({})
+   const [loading,setLoading]=useState(false)
    const navigate=useNavigate('')
    
 
    const handleChanges=async (e)=>{
-    setFormData({...formData,[e.target.id]:e.target.value});
+    setFormData({...formData,[e.target.id]:e.target.value.trim()});
    }
 
    const validateForm=()=>{
@@ -35,6 +36,7 @@ export default function Login() {
   
     if(!validateForm()) return 
     try{
+      setLoading(true)
       const response=await axiosInstance.post('/api/admin/admin-login',formData,{
         headers:{
           "Content-Type":'application/json'
@@ -53,6 +55,9 @@ export default function Login() {
 
     }catch(error){
        console.log(error.message)
+       setLoading(false)
+    }finally{
+      setLoading(false)
     }
     
    }
