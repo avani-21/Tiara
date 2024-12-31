@@ -11,36 +11,43 @@ import axiosInstance from "../../api/axiosInstance";
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumbs";
 import Pagination from "../../components/Pagination/Pagination";
 import CategoryFilter from "../../components/categoryFilter/CategoryFilter";
+import Loader from "../../components/Loader/Loader";
 
 const Shop = () => {
   useWindowScrollToTop();
 
-  const [product, setProduct] = useState([]); 
-  const [filterList, setFilterList] = useState([]); 
-  const [selectedCategories, setSelectedCategories] = useState([]); 
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [product, setProduct] = useState([]);
+  const [filterList, setFilterList] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortQuery, setSortQuery] = useState("");
   const entriesPerPage = 10;
 
-  
+
 
   const fetchProduct = async () => {
     try {
-      const response = await axiosInstance.get("/api/user/product",{
-        params:{
-          category:selectedCategories.length ? selectedCategories.join(',') : 'All',
-          sort:sortQuery,
+      setLoading(true)
+      const response = await axiosInstance.get("/api/user/product", {
+        params: {
+          category: selectedCategories.length ? selectedCategories.join(',') : 'All',
+          sort: sortQuery,
           searchQuery
         }
       });
       const productItem = response.data.allProductWithOffers;
       if (response.status === 200) {
         setProduct(productItem);
-        setFilterList(productItem); 
+        setFilterList(productItem);
       }
     } catch (error) {
+      setLoading(false)
       console.log("Error:", error.message);
+    }
+    finally {
+      setLoading(false)
     }
   };
   useEffect(() => {
@@ -50,7 +57,7 @@ const Shop = () => {
   useEffect(() => {
     let filtered = [...product];
 
-  
+
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((item) => selectedCategories.includes(item.category));
     }
@@ -63,14 +70,14 @@ const Shop = () => {
 
     setFilterList(filtered);
     fetchProduct();
-  }, [selectedCategories, searchQuery,sortQuery]);
+  }, [selectedCategories, searchQuery, sortQuery]);
 
   // Pagination logic
   const totalPages = Math.ceil(filterList.length / entriesPerPage);
   const startIndex = (currentPage - 1) * entriesPerPage;
   const currentProducts = filterList.slice(startIndex, startIndex + entriesPerPage);
 
- 
+
   const handleCategoryChange = (category, isChecked) => {
     if (isChecked) {
       setSelectedCategories((prev) => [...prev, category]);
@@ -97,24 +104,30 @@ const Shop = () => {
         </Container>
         <Container>
           <Row>
-           
+
             <Col md={3} style={{ borderRight: "1px solid #ddd", paddingRight: "15px" }}>
               <CategoryFilter onCategoryChange={handleCategoryChange} />
             </Col>
-       
+
             <Col md={9}>
-              <ShopList productItems={currentProducts} />
+              {loading ? <Loader /> : (
+                <ShopList productItems={currentProducts} />
+              )}
+
             </Col>
           </Row>
         </Container>
         <Container className="mt-4">
-          {/* Pagination Component */}
+         {loading ? " " : (
+          
           <Pagination
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalEntries={filterList.length}
-            entriesPerPage={entriesPerPage}
-          />
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalEntries={filterList.length}
+          entriesPerPage={entriesPerPage}
+        />
+         )}
+         
         </Container>
       </section>
       <Footer />
