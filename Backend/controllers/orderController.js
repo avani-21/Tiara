@@ -501,7 +501,7 @@ const handlePaymentStatus = async (req, res) => {
     }
 
    
-    const order = await Order.findOne(razorId);
+    const order = await Order.findOne({razorId});
     console.log(order);
     if (!order) {
       return res.status(404).json({ message: "Order not found" });

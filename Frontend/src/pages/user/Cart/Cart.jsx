@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Button ,Modal} from "react-bootstrap";
+import { Container, Row, Col, Button ,Modal,Spinner} from "react-bootstrap";
 import NavBar from "../../../components/Header/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { toast } from "react-toastify";
@@ -12,6 +12,7 @@ import { applyCoupon, getCoupon } from "../../../api/user/Coupon";
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [couponCode,setCouponCode]=useState("");
+  const [loading,setLoading]=useState(false)
   const [discountedPrice,setDiscountedPrice]=useState(null)
   const [discount,setDiscount]=useState(0)
   const [availableCoupons, setAvailableCoupons] = useState([]);  
@@ -44,6 +45,7 @@ const Cart = () => {
   const increaseQuantity = async (productId) => {
     if (discountedPrice !== null) return;
     try {
+      setLoading(true)
       console.log(11);
 
       const token = localStorage.getItem("userToken");
@@ -66,15 +68,19 @@ const Cart = () => {
       }
     } catch (error) {
       console.log("error: ", error.message);
+      setLoading(false)
       toast.error(
         "failed to increase quantity.You can add maximum of 5 product"
       );
+    }finally{
+      setLoading(false)
     }
   };
 
   const decreaseQuantity = async (productId) => {
     if (discountedPrice !== null) return;
     try {
+      setLoading(true)
       const token = localStorage.getItem("userToken");
       const response = await axiosInstance.patch(
         `/api/user/cart/${userId}/decrease/${productId}`,
@@ -90,8 +96,11 @@ const Cart = () => {
         setCart(response.data.cart.items);
       }
     } catch (error) {
+      setLoading(false)
       console.log("error: ", error.message);
       toast.error("failed to decrease quantity");
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -205,7 +214,8 @@ const Cart = () => {
           <Container>
             <Row className="justify-content-center">
               <Col md={8}>
-                {cart.length === 0 ? (
+              {loading ?   " " :
+                  cart.length === 0 ? (
                   <h1 className="no-items product">
                     No Items are added to the Cart
                   </h1>
@@ -290,7 +300,7 @@ const Cart = () => {
                           onClick={() => handleRemoveFromCart(item.productId?._id)}
                         >
                           Remove
-                         {/* <i className="bi bi-trash"></i> */}
+                     
                         </Button>
                       </Row>
                     </div>

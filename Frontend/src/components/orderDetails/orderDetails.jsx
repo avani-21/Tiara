@@ -364,23 +364,23 @@ const handleRetryPayment = async (orderId, productId) => {
                 </div>
 
                 <div className="order-btn-group">
-                {product.itemStatus!=='delivered' && product.itemStatus !=="cancelled" ? 
+                {product.itemStatus!=='delivered' && product.itemStatus !=="cancelled"  && 
                   <button
                   className="order-btn"
                   style={{ backgroundColor: product.itemStatus === 'cancelled' ? 'red' : '#0f3460' }}
                   onClick={() => handleCancelClick(product.id, order.id)}
                 >
                   {product.itemStatus === 'cancelled' ? "Order Cancelled" : "Cancel Product"}
-                </button> : ""}
+                </button> }
                 
-                  {product.itemStatus!=='cancelled'? (
+                  {product.itemStatus!=='cancelled' && product.itemStatus === "delivered" && (
                     <button
                     className="order-btn"
                     onClick={() => handleReturnClick(product.id, order.id)}
                   >
                     Return
                   </button>
-                  ) : ""}
+                  )}
                   
                  {product.itemStatus==="payment failed" && 
                  <button className='btn' onClick={()=>handleRetryPayment(order.razorId,product.id)}>
@@ -388,13 +388,7 @@ const handleRetryPayment = async (orderId, productId) => {
                  </button>
                  }
 
-{![ 
-    'pending', 
-    'pending payment', 
-    'payment failed', 
-    'cancelled', 
-    'returned'
-  ].includes(product.itemStatus) && (
+{product.itemStatus!=='cancelled' && (
     <button
       className="order-btn"
       onClick={() => handleDownloadInvoice(order.id? order.id : order.razorId)}

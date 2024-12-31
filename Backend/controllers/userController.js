@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import crypto from "crypto";
 import Wallet from "../models/WalletModal.js";
 import { type } from "os";
+import { Spinner } from 'react-bootstrap';
 
 dotenv.config();
 
@@ -277,11 +278,15 @@ const googleSignin = async (req, res) => {
       user.googleId = googleId;
       await user.save();
     }
-    const newWallet=await Wallet({
-      userId:user._id,
-      balance:user.balance || 0 ,
-    })
-    await newWallet.save();
+    let wallet = await Wallet.findOne({ userId: user._id });
+    if (!wallet) {
+      wallet = new Wallet({
+        userId: user._id,
+        balance: 0, 
+      });
+      await wallet.save();
+    }
+    
 
     const token = jwt.sign(
       { id: user._id, email: user.email , role:"user"},
