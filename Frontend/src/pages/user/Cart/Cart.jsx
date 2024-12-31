@@ -7,6 +7,7 @@ import axiosInstance from "../../../api/axiosInstance";
 import { removeFromCart } from "../../../api/user/Cart";
 import { useNavigate } from "react-router-dom";
 import BreadCrumb from "../../../components/Breadcrumb/Breadcrumbs";
+import Loader from '../../../components/Loader/Loader'
 import { applyCoupon, getCoupon } from "../../../api/user/Coupon";
 
 const Cart = () => {
@@ -224,7 +225,7 @@ const Cart = () => {
           <Container>
             <Row className="justify-content-center">
               <Col md={8}>
-              {loading ?   " " :
+              {loading ?   <Loader/> :
                   cart.length === 0 ? (
                   <h1 className="no-items product">
                     No Items are added to the Cart

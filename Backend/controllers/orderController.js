@@ -494,7 +494,7 @@ const handlePaymentStatus = async (req, res) => {
   try {
     const { razorId, paymentStatus } = req.body; 
   
-     console.log(req.body);
+     console.log(  'status change body ',req.body);
   
     if (!["payment failed", "payment success"].includes(paymentStatus)) {
       return res.status(400).json({ message: "Invalid payment status" });
