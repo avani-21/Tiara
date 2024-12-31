@@ -61,10 +61,15 @@ const Cart = () => {
         }
       );
       console.log("inc", response);
+      const updatedItem = response.data.updatedItem;
 
       if (response.status === 200) {
         fetchCart();
-        setCart(response.data.cart.items);
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.productId._id === productId ? { ...item, quantity: updatedItem?.quandity } : item
+          )
+        );
       }
     } catch (error) {
       console.log("error: ", error.message);
@@ -91,9 +96,14 @@ const Cart = () => {
           },
         }
       );
+      const updatedItem = response.data.updatedItem;
       if (response.status === 200) {
         fetchCart();
-        setCart(response.data.cart.items);
+        setCart((prevCart) =>
+          prevCart.map((item) =>
+            item.productId._id === productId ? { ...item, quantity: updatedItem?.quandity } : item
+          )
+        );
       }
     } catch (error) {
       setLoading(false)
@@ -241,7 +251,7 @@ const Cart = () => {
                               <h4>
                               ₹{item.productId?.offerPrice ? item.productId?.offerPrice : item.productId?.price } x {item.quantity}{" "}
                                 <span>
-                                ₹{item.productId?.offerPrice ? item.productId?.offerPrice : item.productId?.price* item.quantity}
+                                ₹{Math.round(calculateTotalPrice()) || " "}
                                 </span>
                               </h4>
                               {(!item.productId?.isListed && !item.productId?.category?.isListed) && (
@@ -314,7 +324,7 @@ const Cart = () => {
               <h2>Cart Summary</h2>
               <div className="d-flex justify-content-between">
                 <h4>Total Price:</h4>
-                <h3>₹{Math.round(calculateTotalPrice())}</h3>
+                <h3>₹{Math.round(calculateTotalPrice()) || ""}</h3>
               </div>
 
               <div>
@@ -370,7 +380,7 @@ const Cart = () => {
                   </div>
                   <div className="d-flex justify-content-between">
                     <h4>Final Price:</h4>
-                    <h3>{Math.round(discountedPrice ? discountedPrice : finalPrice)}</h3>
+                    <h3>{Math.round(discountedPrice ? discountedPrice : finalPrice) || ""}</h3>
                   </div>
 
 
