@@ -231,7 +231,7 @@ const ProfileCard = ({ profileData }) => {
             <Button
               variant="outlined"
               color="secondary"
-              onClick={handleChangePassword}
+              onClick={handlePasswordClose}
             >
               Close
             </Button>
