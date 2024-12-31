@@ -164,12 +164,13 @@ const ProductDetails = () => {
                     <i className="bi bi-star-fill"></i>
                     <i className="bi bi-star-fill"></i>
                   </div>
-                  <span>{selectedProduct?.rating || "0"} ratings</span>
+                  <span>{selectedProduct?.rating || ""} ratings</span>
                 </div>
                 <div className="info">
                   <span className="price"> 
-                       {selectedProduct?.offerPrice > 0 ? (
+                       { selectedProduct?.price.toFixed(2) !== selectedProduct?.offerPrice.toFixed(2) ? (
     <>
+   
       <h3 style={{ textDecoration: 'line-through', color: 'red' }}>
       ₹{selectedProduct?.price.toFixed(2)}
       </h3>
