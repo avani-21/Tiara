@@ -19,7 +19,6 @@ const Shop = () => {
   const [product, setProduct] = useState([]);
   const [filterList, setFilterList] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [loading, setLoading] = useState(false)
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [sortQuery, setSortQuery] = useState("");
@@ -29,7 +28,7 @@ const Shop = () => {
 
   const fetchProduct = async () => {
     try {
-      setLoading(true)
+ 
       const response = await axiosInstance.get("/api/user/product", {
         params: {
           category: selectedCategories.length ? selectedCategories.join(',') : 'All',
@@ -43,12 +42,10 @@ const Shop = () => {
         setFilterList(productItem);
       }
     } catch (error) {
-      setLoading(false)
+   
       console.log("Error:", error.message);
     }
-    finally {
-      setLoading(false)
-    }
+ 
   };
   useEffect(() => {
     fetchProduct();
@@ -110,15 +107,15 @@ const Shop = () => {
             </Col>
 
             <Col md={9}>
-              {loading ? <Loader /> : (
+              
                 <ShopList productItems={currentProducts} />
-              )}
+              
 
             </Col>
           </Row>
         </Container>
         <Container className="mt-4">
-         {loading ? " " : (
+        
           
           <Pagination
           currentPage={currentPage}
@@ -126,8 +123,7 @@ const Shop = () => {
           totalEntries={filterList.length}
           entriesPerPage={entriesPerPage}
         />
-         )}
-         
+      
         </Container>
       </section>
       <Footer />
