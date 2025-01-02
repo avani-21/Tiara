@@ -15,7 +15,7 @@ const getCategory = async (req, res) => {
 const addCategory = async (req, res) => {
   const { name } = req.body;
   try {
-    const existingCategory = await categorySchema.findOne({ name });
+    const existingCategory = await categorySchema.findOne({ name : { $regex: `^${name}$`, $options: 'i' }});
     if (existingCategory) {
       toast.error("Category name already exist");
       return res.status(400).json({ message: "Category alredy exist" });

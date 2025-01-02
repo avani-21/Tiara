@@ -205,7 +205,7 @@ function Coupon() {
                 </label>
 
                 <label className="form-label">
-                  Discount
+                  Discount Percentage
                   <input
                     type="number"
                     name="discount"
@@ -239,17 +239,7 @@ function Coupon() {
   />
 </label>
 
-                <label className="form-label">
-                  Maximum Usage
-                  <input
-                    type="number"
-                    name="maxUsage"
-                    value={couponData.maxUsage}
-                    onChange={handleInputChange}
-                    placeholder="Enter maximum usage limit"
-                    className="form-input"
-                  />
-                </label>
+               
 
                 <label className="form-label">
                   Expiry Date

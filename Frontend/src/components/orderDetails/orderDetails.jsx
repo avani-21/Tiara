@@ -365,7 +365,7 @@ const handleRetryPayment = async (orderId, productId) => {
                 </div>
 
                 <div className="order-btn-group">
-                {product.itemStatus!=='delivered' && product.itemStatus !=="cancelled"  && 
+                {product.itemStatus!=='delivered'  &&  product.itemStatus !=="cancelled"  && 
                   <button
                   className="order-btn"
                   style={{ backgroundColor: product.itemStatus === 'cancelled' ? 'red' : '#0f3460' }}
@@ -373,6 +373,12 @@ const handleRetryPayment = async (orderId, productId) => {
                 >
                   {product.itemStatus === 'cancelled' ? "Order Cancelled" : "Cancel Product"}
                 </button> }
+
+                {product.itemStatus==='cancelled' && 
+                <button className='btn'   style={{ backgroundColor: product.itemStatus === 'cancelled' ? 'red' : '#0f3460' }}>
+                   cancelled
+                </button>
+                }
                 
                   {product.itemStatus!=='cancelled' && product.itemStatus === "delivered" && (
                     <button

@@ -46,7 +46,7 @@ import {
   fetchWishList,
   removeFromWishlist,
 } from "../controllers/wishlistController.js";
-import { addMoney, getWallet, walletTransaction } from "../controllers/walletController.js";
+import { addMoney, getWallet, updateWallet, walletTransaction } from "../controllers/walletController.js";
 import { applyCoupen, getCoupon } from "../controllers/coupenController.js";
 import { getCategory, } from "../controllers/categoryController.js";
 import requireRole from "../middleware/requireRole.js";
@@ -114,6 +114,7 @@ router.post("/order/createTransaction", verifyToken, requireRole("user"),createT
 router.get("/wallet/:id", verifyToken,requireRole("user"), checkBlockedUser,getWallet);
 router.post("/wallet/add/:id", verifyToken, requireRole("user"),checkBlockedUser,addMoney);
 router.post("/wallet/trasaction",verifyToken,requireRole("user"),checkBlockedUser,walletTransaction)
+router.post("/wallet/update-wallet",verifyToken,requireRole("user"),checkBlockedUser,updateWallet)
 
 router.get("/wishlist/:id", verifyToken, requireRole("user"),checkBlockedUser,fetchWishList);
 router.post("/wishlist/:id", verifyToken, requireRole("user"),checkBlockedUser,addToWishList);

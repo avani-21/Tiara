@@ -88,7 +88,7 @@ import { addToWishlist } from "../../api/user/Wishlist";
       />
     <div className="product-like" onClick={() => 
   !userId ? toast.error("Please login for wishlisting a product") : 
-  handleAddToWishlist(productItem._id, productItem.quantity, productItem.price)
+  handleAddToWishlist(productItem._id, productItem.quantity, productItem.offerPrice ? productItem.offerPrice : productItem.price)
 }>
 
         <i className="bi bi-heart"></i>
@@ -103,19 +103,25 @@ import { addToWishlist } from "../../api/user/Wishlist";
           <i className="fa fa-star"></i>
         </div>
         <div className="price">
-        {productItem.offerPrice > 0 ? (
+        {
+  productItem.offerPrice > 0 ? (
     <>
-    { productItem.offerPrice !== productItem.price &&
+      {productItem.offerPrice !== productItem.price ? (
+        <>
           <h3 style={{ textDecoration: 'line-through', color: 'red' }}>
-          ₹{productItem.price.toFixed(2)}
-        </h3>
-    }
-   
-      <h4>₹{productItem.offerPrice.toFixed(2)}</h4>
+            ₹{productItem.price.toFixed(2)}
+          </h3>
+          <h4>₹{productItem.offerPrice.toFixed(2)}</h4>
+        </>
+      ) : (
+        <h4>₹{productItem.price.toFixed(2)}</h4>
+      )}
     </>
   ) : (
     <h4>₹{productItem.price.toFixed(2)}</h4>
-  )}
+  )
+}
+
           <button
             aria-label="Add"
             type="submit"

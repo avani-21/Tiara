@@ -7,6 +7,7 @@ import "./Wallet.css"; // Add custom styles
 import NavBar from "../Header/Navbar";
 import Sidebar from "../ProfileCard/Sidebar";
 import Footer from "../Footer/Footer";
+import { updateWallet } from "../../api/user/Wallet";
 
 const Wallet = () => {
   const [wallet, setWallet] = useState(null);
@@ -36,6 +37,7 @@ const Wallet = () => {
       setLoading(false);
     }
   };
+
   const handleAddMoney = async () => {
     const numericAmount = parseFloat(amount);
     if (!numericAmount || numericAmount <= 0) {
@@ -44,15 +46,45 @@ const Wallet = () => {
     }
     try {
       const response = await addMoney(numericAmount, navigate);
-      if (response?.wallet) {
-        setWallet(response.wallet);
-        toast.success("Money added successfully!");
-        fetchWallet()
-        closeModal();
-      } else {
-        throw new Error("Failed to add money");
-      }
-      setAmount("");
+   console.log("fkfjijfijds",response)
+
+      if(response.message==='Success'){
+        console.log('hi')
+        const { orderId, amount } = response;   
+        const options = {
+          key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+          amount: response.amount * 100,
+          currency: "INR",
+          name: "Tiara",
+          description: "Add money to wallet",
+          order_id: response.orderId,
+          handler: async function () {
+            try{
+              console.log('wertyu')
+              const walletUpdate=await updateWallet(numericAmount)
+              if(walletUpdate){
+                toast.success("Money added to wallet successfully!");
+                fetchWallet();
+                closeModal(); 
+              }
+
+            }catch(error){
+              toast.error(error?.response?.data?.message || "Error updating wallet")
+            }
+
+          },
+
+          theme: {
+            color: "#3399cc",
+          }
+        };
+          
+          const razorpay = new window.Razorpay(options);
+          razorpay.open();
+        
+       }
+
+    
     } catch (error) {
       console.error("Error adding money:", error);
       toast.error("Failed to add money");

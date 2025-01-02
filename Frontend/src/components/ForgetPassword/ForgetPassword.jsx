@@ -5,6 +5,8 @@ import Footer from '../Footer/Footer'
 import { forgetPassword } from '../../api/user/forgetPasseord';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader';
+import {toast} from "react-toastify"
+
 
 function ForgetPassword() {
 
@@ -31,9 +33,12 @@ function ForgetPassword() {
       }
     }catch(error){
       setLoading(false)
+      toast.error("Wrong email,Please add the registered email address")
+      setEmail("")
        console.log("Error:",error)  
     }finally{
       setLoading(false)
+      setEmail("")
     }
   }
   return (

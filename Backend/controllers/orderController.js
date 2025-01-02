@@ -60,6 +60,7 @@ const placeOrder = async (req, res) => {
       discount = Math.min(discount, orderSubtotal); 
 
       coupon.usedCount += 1;
+      coupon.userData.push({ userId, usageCount: 1 });
       await coupon.save();
     }
 
@@ -358,8 +359,8 @@ const skip=(page-1) * limit
         id: order._id,
         discountValue:order?.discountValue,
         orderStatus: order.orderStatus,
-        orderTotal: order.orderTotal,
-        orderSubtotal: order.orderSubtotal,
+        orderTotal: parseInt(order.orderTotal),
+        orderSubtotal: parseInt(order.orderSubtotal),
         paymentMethord: order.paymentMethord,
         date: order.createdAt,
         products,
@@ -372,11 +373,13 @@ const skip=(page-1) * limit
       };
     });
 
-     console.log(updatedOrder);
-    
+    const uniqueOrders = updatedOrder.filter((value, index, self) => 
+      index === self.findIndex((t) => t.orderNumber === value.orderNumber)
+    );
+
       res.status(200).json({
       message: "Order data fetched successfully",
-      orders: updatedOrder,
+      orders: uniqueOrders,
       totalOrders, 
 
     });

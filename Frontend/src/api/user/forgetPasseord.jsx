@@ -21,6 +21,8 @@ const forgetPassword = async (email) => {
       return response.data;
     }
   } catch (error) {
+    
+    toast.error("Wrong email.Entered registered email address")
     console.log("Forget password", error);
   }
 };

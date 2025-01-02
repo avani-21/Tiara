@@ -180,8 +180,8 @@ const applyCoupen=async (req,res)=>{
         }
         console.log("discount",discount);
 
-      coupen.userData.push({ userId, usageCount: 1 });
-      await coupen.save();
+      // coupen.userData.push({ userId, usageCount: 1 });
+      // await coupen.save();
       await cart.save();
       res.status(200).json({message:"Coupen applied successfully",cart,discount,discountedPrice: total - discount,minPurchase:coupen.minPurchase
       })

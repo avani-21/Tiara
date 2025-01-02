@@ -11,13 +11,13 @@ import {v4 as uuidv4} from "uuid"
 const uploadImageToCloudinary = async (filePath) => {
   const options = {
     folder: "products",
-    public_id: uuidv4(), // Generate a unique ID for the file
-    use_filename: true,  // Maintain the file's original name for better tracking
+    public_id: uuidv4(),
+    use_filename: true, 
   };
 
   try {
     const result = await cloudinary.uploader.upload(filePath, options);
-    return result.secure_url; // Return the secure Cloudinary URL
+    return result.secure_url; 
   } catch (error) {
     console.error("Error uploading to Cloudinary:", error);
     throw new Error("Failed to upload image");
@@ -49,10 +49,10 @@ const fetchProduct = async (req, res) => {
           sortCondition = { isPopular: -1 };
           break;
         case 'priceLowToHigh':
-          sortCondition = { price: 1 };
+          sortCondition = { offerPrice: 1 };
           break;
         case 'priceHighToLow':
-          sortCondition = { price: -1 };
+          sortCondition = { offerPrice: -1 };
           break;
         case 'newArrivals':
           sortCondition = { createdAt: -1 };

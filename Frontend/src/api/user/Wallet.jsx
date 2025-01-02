@@ -56,6 +56,25 @@ const userId = localStorage.getItem("userId");
   }
 };
 
+const updateWallet=async (amount)=>{
+  const token=localStorage.getItem("userToken")
+  const userId=localStorage.getItem("userId")
+  try{
+const response=await axiosInstance.post(`${API_URL}/update-wallet`,
+  {userId,amount},
+  {
+  headers:{
+    Authorization:`Bearer ${token}`
+  }
+})
+if(response.status===200){
+  return response.data
+}
+  }catch(error){
+  console.log(error)
+  }
+}
+
 const walletTransaction=async (finalPrice)=>{
   const token = localStorage.getItem("userToken");
   const userId = localStorage.getItem("userId");
@@ -77,4 +96,4 @@ try{
 }
 }
 
-export { getWallet , addMoney, walletTransaction};
+export { getWallet , addMoney, walletTransaction,updateWallet};
