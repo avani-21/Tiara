@@ -258,6 +258,7 @@ const handleRetryPayment = async (orderId, productId) => {
               },
             }
           );
+          await fetchOrder()
           if (updateResponse.status === 200) {
         
             setOrders((prevOrders) =>

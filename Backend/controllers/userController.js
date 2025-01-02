@@ -190,7 +190,7 @@ const resendOtp = async (req, res) => {
 
     await user.save();
 
-    await sendMail(email, "Your otp code", "Your new Otp");
+    await emailSend(email, "Verify your email", `Your OTP code is: ${otp}`);
 
     res.status(200).json({
       success: true,
@@ -198,6 +198,7 @@ const resendOtp = async (req, res) => {
       otpExpiry: user.otpExpires,
     });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: error.message });
   }
 };

@@ -492,7 +492,7 @@ const returnPayment = async (req, res) => {
 
 const handlePaymentStatus = async (req, res) => {
   try {
-    const { razorId, paymentStatus } = req.body; 
+    const {razorId,paymentStatus} = req.body; 
   
      console.log(  'status change body ',req.body);
   
