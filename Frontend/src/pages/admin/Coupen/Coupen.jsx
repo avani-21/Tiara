@@ -139,7 +139,7 @@ function Coupon() {
                   <th>Discount</th>
                   <th>Min Purchase</th>
                   <th>Max Discount</th>
-                  <th>Max Usage</th>
+                  {/* <th>Max Usage</th> */}
                   <th>Expires At</th>
                   <th>Status</th>
                   <th></th>
@@ -155,7 +155,7 @@ function Coupon() {
                     </td>
                     <td className="py-4" style={{ border: "none" }}>₹{item.minPurchase}</td>
                     <td className="py-4" style={{ border: "none" }}>₹{item.maxDiscount}</td>
-                    <td className="py-4" style={{ border: "none" }}>{item.maxUsage}</td>
+                    {/* <td className="py-4" style={{ border: "none" }}>{item.maxUsage}</td> */}
                     <td className="py-4" style={{ border: "none" }}>{new Date(item.expiresAt).toLocaleDateString()}</td>
                     <td className="py-4" style={{ border: "none", color: item.isActive ? "green" : "red" }}>
                       {item.isActive ? "Active" : "Inactive"}
@@ -267,5 +267,7 @@ function Coupon() {
     </>
   );
 }
+
+
 
 export default Coupon;
