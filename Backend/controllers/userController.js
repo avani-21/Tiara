@@ -190,7 +190,7 @@ const resendOtp = async (req, res) => {
 
     await user.save();
 
-    await emailSend(email, "Verify your email,Resend otp", `Your OTP code is: ${otp}`);
+    await emailSend(email, "Verify your email,Resend otp", `Your OTP code is: ${user.otp}`);
 
     res.status(200).json({
       success: true,
