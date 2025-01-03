@@ -59,7 +59,7 @@ function Order() {
     };
 
     const getDisabledOptions = (status) => {
-        const statusOrder = ["pending", "confirmed", "shipped", "delivered", "cancelled"];
+        const statusOrder = ["pending","payment failed","payment success", "cancelled", "confirmed", "shipped", "delivered"];
         
         const currentIndex = statusOrder.indexOf(status);
         if (status === "cancelled") {
@@ -97,45 +97,67 @@ function Order() {
                             <th>Details</th>
                         </tr>
                     </thead>
+                 
                     <tbody>
-                        {orders && orders.length > 0 ? (
-                            orders.flatMap((order) =>
-                                order?.products.map((product) => (
-                                    <tr key={`${order.id}-${product._id}`}>
-                                        <td>{`${order.orderNumber}`}</td>
-                                        <td>{order.name}</td>
-                                        <td>₹{order?.orderTotal ?  order?.orderTotal : product.price}</td>
-                                        <td>{order.paymentMethord}</td>
-                                        <td>
-                                            <select
-                                                value={product.itemStatus}
-                                                onChange={(e) => handleStatusUpdate(order.orderNumber, product._id, e.target.value)}
-                                            >
-                                                <option value="pending" disabled={getDisabledOptions(product.itemStatus).includes("pending")}>Pending</option>
-                                                <option value="cancelled" disabled={getDisabledOptions(product.itemStatus).includes("cancelled")}>Cancelled</option>
-                                                <option value="confirmed" disabled={getDisabledOptions(product.itemStatus).includes("confirmed")}>Confirmed</option>
-                                                <option value="shipped" disabled={getDisabledOptions(product.itemStatus).includes("shipped")}>Shipped</option>
-                                                <option value="delivered" disabled={getDisabledOptions(product.itemStatus).includes("delivered")}>Delivered</option>
-                                                
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button
-                                                className="btn btn-outline-light"
-                                                onClick={() => handleDetails(order)}
-                                            >
-                                                View
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))
-                            )
-                        ) : (
-                            <tr>
-                                <td colSpan="6">No orders available</td>
-                            </tr>
-                        )}
-                    </tbody>
+    {orders && orders.length > 0 ? (
+        orders.map((order) => (
+            <tr key={order.id}>
+                <td>{order.orderNumber}</td>
+                <td>{order.name}</td>
+                <td>
+                    ₹{order?.orderTotal ? order?.orderTotal : order.products.reduce((total, product) => total + product.price, 0)}
+                </td>
+                <td>{order.paymentMethord}</td>
+                <td>
+                    {/* {order.products.map((product) => (
+                        <div key={product._id}>
+                            <select
+                                value={product[0].itemStatus}
+                                onChange={(e) => handleStatusUpdate(order.orderNumber, product[0]._id, e.target.value)}
+                            >
+                                <option value="pending" disabled={getDisabledOptions(product[0].itemStatus).includes("pending")}>Pending</option>
+                                <option value="cancelled" disabled={getDisabledOptions(product[0].itemStatus).includes("cancelled")}>Cancelled</option>
+                                <option value="confirmed" disabled={getDisabledOptions(product[0].itemStatus).includes("confirmed")}>Confirmed</option>
+                                <option value="shipped" disabled={getDisabledOptions(product[0].itemStatus).includes("shipped")}>Shipped</option>
+                                <option value="delivered" disabled={getDisabledOptions(product[0].itemStatus).includes("delivered")}>Delivered</option>
+                            </select>
+                        </div>
+                    ))} */}
+
+      {order.products.length > 0 ? (
+                        <select
+                            value={order.products[0].itemStatus}
+                            onChange={(e) => handleStatusUpdate(order.orderNumber, order.products[0]._id, e.target.value)}>
+                            <option value="pending" disabled={getDisabledOptions(order.products[0].itemStatus).includes("pending")}>Pending</option>
+                            <option value="payment failed" disabled={getDisabledOptions(order.products[0].itemStatus).includes("payment failed")}>Payment failed</option>
+                            <option value="payment success" disabled={getDisabledOptions(order.products[0].itemStatus).includes("payment success")}>Payment success</option>
+
+                            <option value="cancelled" disabled={getDisabledOptions(order.products[0].itemStatus).includes("cancelled")}>Cancelled</option>
+                            <option value="confirmed" disabled={getDisabledOptions(order.products[0].itemStatus).includes("confirmed")}>Confirmed</option>
+                            <option value="shipped" disabled={getDisabledOptions(order.products[0].itemStatus).includes("shipped")}>Shipped</option>
+                            <option value="delivered" disabled={getDisabledOptions(order.products[0].itemStatus).includes("delivered")}>Delivered</option>
+                        </select>
+                    ) :("")}
+                </td>
+                <td>
+                    <button
+                        className="btn btn-outline-light"
+                        onClick={() => handleDetails(order)}
+                    >
+                        View
+                    </button>
+                </td>
+            </tr>
+        ))
+    ) : (
+        <tr>
+            <td colSpan="6">No orders available</td>
+        </tr>
+    )}
+</tbody>
+
+
+
                 </table>
             </div>
 

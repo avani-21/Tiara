@@ -513,7 +513,6 @@ const handlePaymentStatus = async (req, res) => {
     });
 
     await order.save();
-  //  console.log(order);
    
  
     res.status(200).json({

@@ -570,7 +570,7 @@ console.log('amount',finalPrice);
         style={{marginBottom:"20px"}}
       >
         <FormControlLabel value="COD" control={<Radio />} label="Cash on delivary" />
-        <FormControlLabel value="razorpay" control={<Radio />} label="Razo pay" />
+        <FormControlLabel value="razorpay" control={<Radio />} label="Razor pay" />
         <FormControlLabel value="wallet" control={<Radio />} label="Wallet" />
       </RadioGroup>
     </FormControl>
