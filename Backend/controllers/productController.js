@@ -82,9 +82,9 @@ const fetchProduct = async (req, res) => {
         const applicableCategoryOffers = activeOffers.filter(offer =>
           offer.categories.includes(product.category._id)
         );
-  
+      
+
         let offerPrice = product.price;
-  
         if (product.offers && product.offers.length > 0) {
           product.offers.forEach(offer => {
             const discount = offer.discountType === 'percentage'
