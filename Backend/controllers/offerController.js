@@ -193,21 +193,10 @@ const deleteOffer = async (req, res) => {
         }
       );
     } else {
-      
-     const productsWithOffer=await Product.find({
-      offersApplied:{$ne :[]}
-     })
 
-     if (productsWithOffer.length > 0) {
-      return res.status(400).json({
-        message: 'An offer is already applied to some products. Please remove it before activating a new one.',
-      });
-    }
-
-    await Product.updateMany(
-      { offersApplied: { $ne: offerId } },
-      { $push: { offersApplied: offerId } }
-    );
+      await Product.updateMany(
+        { offersApplied: offerId },
+      );
     }
 
     res.status(200).json({
