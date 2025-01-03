@@ -5,12 +5,14 @@ import SliderHome from "../../../components/Slider";
 import useWindowScrollToTop from "../../../hooks/useWindowScrollToTop";
 import Header from "../../../components/Header/Navbar";
 import Footer from "../../../components/Footer/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useNavigate} from "react";
 import axiosInstance from "../../../api/axiosInstance";
 import BreadCrumb from "../../../components/Breadcrumb/Breadcrumbs";
+import { use } from "react";
 
 const Home = () => {
   const [item, setItem] = useState([]);
+  const navigate = useNavigate();
 
   useWindowScrollToTop();
   useEffect(() => {
@@ -29,6 +31,13 @@ const Home = () => {
       console.log("Error:", error.message);
     }
   }, []);
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("userToken");
+    if (userToken) {
+      navigate("/home");  
+    }
+  }, [navigate]);
 
 
   return (
