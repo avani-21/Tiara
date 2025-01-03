@@ -92,7 +92,8 @@ function OTPVerification() {
     <>
     <NavBar/>
       <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh'}}>
-      <div className="card shadow-lg p-5 rounded" style={{ width: '500px', height:"520px", borderRadius: '12px' ,marginLeft:'508px'}}>
+      <div className="card shadow-lg p-5 rounded" style={{ width: '500px', height:"520px", borderRadius: '12px' ,marginLeft: "277px",
+    marginTop: "58px"}}>
         <h2 className="text-center mb-4" style={{ fontWeight: '600', }}>OTP Verification</h2>
         <p className="text-center mb-4" style={{ color: '#666' }}>Enter the 6-digit code sent to your email</p>
         

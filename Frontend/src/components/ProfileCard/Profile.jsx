@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import { toast } from "react-toastify";
+import {format} from 'date-fns'
 import axiosInstance from "../../api/axiosInstance";
 import { useParams } from "react-router-dom";
 
@@ -112,7 +113,12 @@ const ProfileCard = ({ profileData }) => {
       setLoading(false);
     }
   };
-  console.log('sdfghjk',profileData);
+
+
+  const formattedCreatedAt = profileData.createdAt
+  ? format(new Date(profileData.createdAt), "MMMM d, yyyy")
+  : "N/A";
+
   
 
   return (
@@ -126,7 +132,7 @@ const ProfileCard = ({ profileData }) => {
         <h2>{profileData.username}</h2>
       </div>
       <p id="info">Email: {profileData.email}</p>
-      <p id="info">Registered At: {profileData.createdAt}</p>
+      <p id="info">Registered At: {formattedCreatedAt}</p>
      <p id="info">Refferal Code:{profileData?.referalCode}</p>
       <div className="btns-group">
         <button className="edit-btn" onClick={handleEditOpen}>

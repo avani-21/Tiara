@@ -100,9 +100,9 @@ function Order() {
                     <tbody>
                         {orders && orders.length > 0 ? (
                             orders.flatMap((order) =>
-                                order.products.map((product) => (
-                                    <tr key={`${order.orderNumber}-${product._id}`}>
-                                        <td>{order.orderNumber}</td>
+                                order?.products.map((product) => (
+                                    <tr key={`${order.id}-${product._id}`}>
+                                        <td>{`${order.orderNumber}`}</td>
                                         <td>{order.name}</td>
                                         <td>₹{order?.orderTotal ?  order?.orderTotal : product.price}</td>
                                         <td>{order.paymentMethord}</td>

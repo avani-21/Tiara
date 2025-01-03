@@ -252,7 +252,7 @@ const Cart = () => {
                               <h4>
                               ₹{item.productId?.offerPrice ? item.productId?.offerPrice : item.productId?.price } x {item.quantity}{" "}
                                 <span>
-                                ₹{Math.round(calculateTotalPrice()) || " "}
+                                ₹{(item.productId?.offerPrice ? item.productId?.offerPrice: item.productId?.price) * item.quantity}
                                 </span>
                               </h4>
                               {(!item.productId?.isListed && !item.productId?.category?.isListed) && (

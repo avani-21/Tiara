@@ -34,6 +34,7 @@ import SalesReport from "./pages/admin/salesReport/salesReport";
 import OrderSuccess from "./components/orderSuccess/OrderSuccess";
 import Dashboard from "./pages/admin/Dashboard/Dashboard";
 import SingleOrderDetails from "./pages/admin/OrderManagment/singleOrderDetails";
+import PublicRoute from "./components/userPublicRoute";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/sign-up" element={<UserSignup />} />
+
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<Product />} />
         <Route path="/otp" element={<Otp />} />
@@ -61,13 +63,13 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
 
         <Route path="/admin-login" element={<Login />} />
-        <Route path="/coupen" element={<Coupen/>}/>
-        <Route path="/offers" element={<Offer/>}/>
-        <Route path="/sales-report" element={<SalesReport/>}/>
-        <Route path="/success"  element={<OrderSuccess/>}/>
-        <Route path="/single-order/:orderId" element={<SingleOrderDetails/>}/>
-       
-        <Route path="/dashboard"  element={<Dashboard/>}/>
+        <Route path="/coupen" element={<Coupen />} />
+        <Route path="/offers" element={<Offer />} />
+        <Route path="/sales-report" element={<SalesReport />} />
+        <Route path="/success" element={<OrderSuccess />} />
+        <Route path="/single-order/:orderId" element={<SingleOrderDetails />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
 
         <Route
           path="/products"

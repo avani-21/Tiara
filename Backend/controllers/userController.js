@@ -186,11 +186,15 @@ const resendOtp = async (req, res) => {
     const otp = crypto.randomInt(100000, 999999).toString();
     console.log(otp);
     user.otp = otp;
+    console.log(user.otp);
     user.otpExpires = Date.now() + 1 * 60 * 1000;
 
     await user.save();
+    console.log("User updated with new OTP:", otp)
 
-    await emailSend(email, "Verify your email,Resend otp", `Your OTP code is: ${user.otp}`);
+    await emailSend(email, "Verify your email,Resend otp", `Your OTP code is: ${otp}`);
+    console.log(emailSend(email, "Verify your email,Resend otp", `Your OTP code is: ${user.otp}`));
+    
 
     res.status(200).json({
       success: true,

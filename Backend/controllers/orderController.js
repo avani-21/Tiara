@@ -333,12 +333,6 @@ const skip=(page-1) * limit
       .limit(limit)
       .populate('userId', "username")
       .populate('orderItems.productId');
-
-   
- 
-   
-
-
     const updatedOrder = orders.map((order) => {
       const products = order.orderItems.map(item => {
         return {
@@ -374,8 +368,10 @@ const skip=(page-1) * limit
     });
 
     const uniqueOrders = updatedOrder.filter((value, index, self) => 
-      index === self.findIndex((t) => t.orderNumber === value.orderNumber)
+      index === self.findIndex((t) => t.id === value.id)
     );
+  
+
 
       res.status(200).json({
       message: "Order data fetched successfully",
